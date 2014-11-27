@@ -12,6 +12,7 @@ while($i<count($homeCategory))
 	$i++;
 }
 
-
+$c = $manager->getCategory($id);
+var_dump($c);
 
  ?>
