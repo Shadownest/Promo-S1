@@ -1,6 +1,6 @@
 <?php 
 
-class Message{
+class Category{
 	private $id;
 	private $title;
 	private $position;
