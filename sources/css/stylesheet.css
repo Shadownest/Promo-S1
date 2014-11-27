@@ -1,5 +1,5 @@
 html, body {width: 100%;height: 100%;min-width: 100%;min-height: 100%;}
-body {padding-top: 70px; background: #ccc; color: #46494f;}
+body {padding-top: 70px; background: #ccc; color: #46494f; font-family: sans-serif;}
 ul {margin: 0; padding: 0;}
 .cgu {height: 400px; overflow: auto;}
 .block {background: #eee; padding: 10px; box-shadow: 0px 0px 2px #fff;}
@@ -83,4 +83,22 @@ button:hover {
 
 .ucp button {
 	margin-top: 20px;
+}
+
+/* CATEGORY ****************************/
+
+.category_title {
+	background: #46494f;
+	padding: 5px 10px;
+	border-radius: 5px 5px 0 0;
+}
+
+.category_title a {
+	font-weight: bold;
+	margin: 0;
+	color: #f8f8f8;
+}
+
+.category_title a:hover {
+	text-decoration: none;
 }
