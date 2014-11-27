@@ -87,6 +87,10 @@ button:hover {
 
 /* CATEGORY ****************************/
 
+.category {
+	margin: 10px 0;
+}
+
 .category_title {
 	background: #46494f;
 	padding: 5px 10px;
