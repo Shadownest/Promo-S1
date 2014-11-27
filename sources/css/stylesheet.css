@@ -19,6 +19,21 @@ hr {
 	border-bottom: 2px solid #46494f;
 }
 
+.img_profile {
+	background: #eee;
+	padding: 2px;
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	border: 1px solid #777;
+}
+
+.img_profile img {
+	width: 100%;
+	height: 100%;
+}
+
+
 /* SEARCH ****************************/
 
 .search {
