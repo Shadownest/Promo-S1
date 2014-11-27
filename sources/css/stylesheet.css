@@ -50,5 +50,6 @@ button:hover {
 	bottom:0;
 	left:0;
 	border-top: 2px solid #46494f;
+	line-height: 2.5em;
 }
 
