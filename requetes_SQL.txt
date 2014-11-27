@@ -1,0 +1,53 @@
+// requetes sur category
+// SELECT `id`, `title`, `position` FROM `category` 
+// SELECT `id`, `title`, `position` FROM `category` ORDER BY position
+// SELECT `id`, `title`, `position` FROM `category` ORDER BY position desc
+// INSERT INTO `category`(`id`, `title`, `position`) VALUES ([value-1],[value-2],[value-3])
+// UPDATE `category` SET `id`=[value-1],`title`=[value-2],`position`=[value-3] WHERE ???
+// DELETE FROM `category` WHERE ???
+
+
+// requetes sur subject
+// INSERT INTO `subject`(`id`, `title`, `author_id`, `creation_date`, `category_id`, `freeze`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])
+
+// UPDATE `subject` SET `id`=[value-1],`title`=[value-2],`author_id`=[value-3],`creation_date`=[value-4],`category_id`=[value-5],`freeze`=[value-6] WHERE ??? 
+
+//DELETE FROM `subject` WHERE ???
+
+//SELECT `id`, `title`, `author_id`, `creation_date`, `category_id`, `freeze` FROM `subject` WHERE ???
+
+
+
+
+// requetes sur user
+//SELECT `id`, `name`, `password`, `email`, `level`, `avatar`, `description` FROM `user` WHERE ???
+
+//INSERT INTO `user`(`id`, `name`, `password`, `email`, `level`, `avatar`, `description`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7])
+
+UPDATE `user` SET `id`=[value-1],`name`=[value-2],`password`=[value-3],`email`=[value-4],`level`=[value-5],`avatar`=[value-6],`description`=[value-7] WHERE ???
+
+DELETE FROM `user` WHERE ???
+
+
+// requetes sur message
+//SELECT `id`, `text`, `author_id`, `creation_date`, `update_date`, `subject_id` FROM `message` WHERE ???
+
+//INSERT INTO `message`(`id`, `text`, `author_id`, `creation_date`, `update_date`, `subject_id`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])
+
+//UPDATE `message` SET `id`=[value-1],`text`=[value-2],`author_id`=[value-3],`creation_date`=[value-4],`update_date`=[value-5],`subject_id`=[value-6] WHERE ???
+
+//DELETE FROM `message` WHERE ???
+
+
+// JOINTURE ENTRE SUBJECT/CATEGORY/USER
+// SELECT `subject`.`id`, `subject`.`title`, `user`.`name`, `subject`.`creation_date`, `category`.`title`, `freeze` FROM `subject` 
+//   LEFT JOIN user ON user.id=subject.author_id
+//   LEFT JOIN category ON category.id=subject.category_id
+
+
+// JOINTURE ENTRE MESSAGE/SUBJECT/USER
+// SELECT `message`.`id`, `message`.`text`, `user`.`name`, `message`.`creation_date`, `message`.`update_date`, `subject`.`title` 	
+//	FROM `message` 
+//  LEFT JOIN user ON message.author_id=user.id
+// 	LEFT JOIN subject ON message.subject_id=subject.id
+
