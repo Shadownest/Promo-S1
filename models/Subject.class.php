@@ -1,6 +1,6 @@
 <?php
 
-class User{
+class Subject{
 
 	private $id;
 	private $title;
