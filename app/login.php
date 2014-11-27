@@ -12,10 +12,10 @@ if(isset($_POST["name"]) && isset($_POST["password"]))
 		$_SESSION['name'] = $user->getName();
 
 		if ($_SESSION['admin']){
-			require("views/ucp_admin.phtml");
+			header("Location: index.php?page=ucp_admin");
 		}
 		else{
-			require("views/ucp_user.phtml");
+			header("Location: index.php?page=ucp_user");
 		}
 		exit();
 	}
