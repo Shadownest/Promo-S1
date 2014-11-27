@@ -75,3 +75,6 @@ LEFT JOIN category ON subject.category_id = category.id
 LEFT JOIN user ON subject.author_id = user.id
 WHERE category.id =1
 ORDER BY creation_date DESC
+
+// recupere une categorie par id
+SELECT  `title`, `position` FROM `category` WHERE id= ???
