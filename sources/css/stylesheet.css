@@ -5,6 +5,13 @@ ul {margin: 0; padding: 0;}
 .block {background: #eee; padding: 10px; box-shadow: 0px 0px 2px #fff;}
 .wrapper {min-height:100%; position:relative;}
 .content {padding-bottom: 50px;}
+hr {
+	border: none;
+	border-top: 1px solid #9a9a9a;
+	box-shadow: 1px 0 0 #333;
+	height: 0;
+	margin: 2% 0
+}
 
 /* NAV ****************************/
 
@@ -51,4 +58,14 @@ button:hover {
 	bottom:0;
 	left:0;
 	padding-top: 10px;
+}
+
+/* UCP ****************************/
+
+.ucp p {
+	margin-bottom: 20px;
+}
+
+.ucp button {
+	margin-top: 20px;
 }
