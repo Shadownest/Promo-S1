@@ -9,6 +9,10 @@ class User{
 	private $level;
 	private $avatar;
 	private $description;
+	private $admin;
+	private $moderator;
+	private $login;
+	
 
 
 	public function __construct(){
@@ -20,6 +24,7 @@ class User{
 	$this->setLevel($this->level);
 	$this->setAvatar($this->avatar);
 	$this->setDescription($this->description);
+	$this->setLogin($this->login);
 
 	}
 
