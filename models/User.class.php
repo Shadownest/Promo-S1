@@ -11,7 +11,6 @@ class User{
 	private $description;
 	private $admin;
 	private $moderator;
-	private $login;
 	
 
 
@@ -24,7 +23,6 @@ class User{
 	$this->setLevel($this->level);
 	$this->setAvatar($this->avatar);
 	$this->setDescription($this->description);
-	$this->setLogin($this->login);
 
 	}
 
@@ -75,16 +73,6 @@ class User{
 			return false;
 		}
 
-	}
-
-	public function getLogin(){
-
-		return $this->login;
-	}
-
-	public function setLogin($login){
-
-		$this->login = $login;
 	}
 
 	public function isAdmin(){

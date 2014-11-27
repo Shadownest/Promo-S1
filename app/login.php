@@ -9,18 +9,15 @@ if(isset($_POST["name"]) && isset($_POST["password"]))
 		$_SESSION['id'] = $user->getId();
 		$_SESSION['admin'] = $user->isAdmin();
 		$_SESSION['moderator'] = $user->isModerator();
-		$_SESSION['login'] = $user->getLogin();
+		$_SESSION['name'] = $user->getName();
 
 		if ($_SESSION['admin']){
 			require("views/ucp_admin.phtml");
-		} 
-		else if($_SESSION['moderator']){
-			require("views/ucp_user.phtml");
 		}
 		else{
 			require("views/ucp_user.phtml");
 		}
-		exit;
+		exit();
 	}
 	else{
 		$error = $user;
