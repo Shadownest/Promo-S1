@@ -32,6 +32,7 @@ class User{
 		$this->id = $id;
 	}
 
+
 	Public function getName(){
 
 		return $this->name;
@@ -57,6 +58,40 @@ class User{
 	public function setEmail($email){
 
 		$this->email = $email;
+	}
+
+
+	public function verifPassword($password){
+
+		if(password_verify($password, $this->password)){
+			return true; 
+		}
+		else{
+			return false;
+		}
+
+	}
+
+	public function getLogin(){
+
+		return $this->login;
+	}
+
+	public function setLogin($login){
+
+		$this->login = $login;
+	}
+
+	public function isAdmin(){
+
+		return $this->admin;
+
+	}
+
+	public function isModerator(){
+
+		return $this->moderator;
+
 	}
 
 	Public function getLevel(){
