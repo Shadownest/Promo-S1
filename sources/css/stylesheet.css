@@ -1,16 +1,38 @@
 html, body {width: 100%;height: 100%;min-width: 100%;min-height: 100%;}
-body {padding-top: 70px; background: #ccc; color: #46494f;}
+body {padding-top: 70px; background: #ccc; color: #46494f; font-family: sans-serif;}
 ul {margin: 0; padding: 0;}
 .cgu {height: 400px; overflow: auto;}
 .block {background: #eee; padding: 10px; box-shadow: 0px 0px 2px #fff;}
 .wrapper {min-height:100%; position:relative;}
 .content {padding-bottom: 50px;}
+hr {
+	border: none;
+	border-top: 1px solid #9a9a9a;
+	box-shadow: 1px 0 0 #333;
+	height: 0;
+	margin: 2% 0
+}
 
 /* NAV ****************************/
 
 .navbar-default {
 	border-bottom: 2px solid #46494f;
 }
+
+.img_profile {
+	background: #eee;
+	padding: 2px;
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	border: 1px solid #777;
+}
+
+.img_profile img {
+	width: 100%;
+	height: 100%;
+}
+
 
 /* SEARCH ****************************/
 
@@ -46,10 +68,37 @@ button:hover {
 	background:#f8f8f8;
 	width:100%;
 	height:40px;
+	box-shadow: 0px 0px 2px #fff;
 	position:absolute;
 	bottom:0;
 	left:0;
-	border-top: 2px solid #46494f;
-	line-height: 2.5em;
+	padding-top: 10px;
 }
 
+/* UCP ****************************/
+
+.ucp p {
+	margin-bottom: 20px;
+}
+
+.ucp button {
+	margin-top: 20px;
+}
+
+/* CATEGORY ****************************/
+
+.category_title {
+	background: #46494f;
+	padding: 5px 10px;
+	border-radius: 5px 5px 0 0;
+}
+
+.category_title a {
+	font-weight: bold;
+	margin: 0;
+	color: #f8f8f8;
+}
+
+.category_title a:hover {
+	text-decoration: none;
+}
