@@ -16,5 +16,65 @@
 				</div>
 			</fieldset>
 		</div>
+
+		<div class="col-md-offset-2 col-md-5 block">
+			<fieldset>
+				<legend>Modification catégorie</legend>
+					<span class="alert-danger"><!-- ----------------------------- INSERER VARIABLE ERREUR --></span>
+				<form action="index.php?page=ucp_admin" method="post">
+					<div class="form-group">
+						<label for="category">Catégories</label>
+						<select class="form-control" name="category[]" id="category" multiple>
+							<option value="exemple">exemple</option>
+							<option value="exemple2">exemple2</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="name">Nom</label>
+						<input type="text" class="form-control" name="name_category" id="name" value="">
+					</div>
+					<div class="form-group">
+						<label for="pos">Position</label>
+						<input type="number" class="form-control" name="pos_category" id="pos" value="">
+					</div>
+					<button class="button_success" type="submit"><i class="fa fa-check"></i>  Valider</button>
+				</form>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-5 block block_mt">
+			<fieldset>
+				<legend>Gérer un utilisateur</legend>
+				<form action="index.php?page=ucp_admin" method="post">
+					<div class="form-group">
+						<label for="userName">Nom de l'utilisateur à modifier</label>
+						<input type="text" name="userName" id="userName" class="form-control">
+					</div>
+					<hr>
+					<h4>Modifier les permissions :</h4>
+					<div class="form-group">
+						<input type="radio" name="choixLevel" id="choixAdmin" /><label for="choixOui">Admin</label><br>
+						<input type="radio" name="choixLevel" id="choixModo" /><label for="choixModo">Modérateur</label><br> 
+						<input type="radio" name="choixLevel" id="choixUser" /><label for="choixUser">Utilisateur</label> 
+					</div>
+					<button class="button_success" type="submit"><i class="fa fa-check"></i> Valider</button>
+				</form>
+			</fieldset>
+		</div>
+		<div class="col-md-offset-2 col-md-5 block block_mt">
+			<fieldset>
+				<legend>Suppression d'utilisateur</legend>
+				<form action="index.php?page=ucp_admin" method="post">
+					<div class="form-group">
+						<label for="searchUser">Rechercher le membre</label>
+						<input type="text" name="searchUser" id="searchUser" class="form-control">
+					</div>
+					<hr>
+					<button class="button_alert" type="submit"><i class="fa fa-remove"></i> Supprimer</button>
+				</form>
+			</fieldset>
+		</div>
 	</div>
 </div>
