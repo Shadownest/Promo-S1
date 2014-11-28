@@ -68,10 +68,22 @@ class UserManager{
 	}
 
 	public function changeAvatar($avatar,$name){
-		$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET avatar='".$avatar."' WHERE user.name='".$name."'");
+
+		if(filter_var($avatar, FILTER_VALIDATE_URL)){
+			$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET avatar='".$avatar."' WHERE user.name='".$name."'");
+			if($request){
+				return "Avatar ajouté";
+			}
+			else{
+				return "Erreur lors de l'ajout de l'avatar";
+			}
+		}
+		else{
+			return "L'url saisie n'est pas valide";
+		}
 	}
 
-	public function modifyUser($avatar, $name, $email, $description, $oldPassword, $newPassword, $newPassword2){
+	public function modifyUser($name, $email, $description, $oldPassword, $newPassword, $newPassword2){
 
 		if (strlen($name) < 4){
 			return 'Login trop court';
@@ -79,14 +91,11 @@ class UserManager{
 		else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			return 'email invalide';
 		}
-		else if(!filter_var($avatar, FILTER_VALIDATE_URL)){
-			return 'url invalide';
-		}
 		else{
-			$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET avatar='".$avatar."', name='".$name."', email='".$email."', description='".$description."'");
+			$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET name='".$name."', email='".$email."', description='".$description."'");
 		}		
 
-		$password=mysqli_query($this->db, "SELECT password FROM user WHERE name='".$name."'");
+		/*$password=mysqli_query($this->db, "SELECT password FROM user WHERE name='".$name."'");
 		if($oldPassword==$res){
 			if($newPassword==$newPassword2){
 				if (strlen($newPassword) < 4){
@@ -102,7 +111,7 @@ class UserManager{
 		}
 		else{
 			return "Vous vous êtes trompé dans la saisie de votre mot de passe";
-		}
+		}*/
 	}
 }
 ?>

@@ -9,12 +9,7 @@ class Message{
 	private $subject_id;
 
 	public function __construct(){
-		$this->setId($this->id);
-		$this->setText($this->text);
-		$this->setAuthor_id($this->author_id);
-		$this->setCreation_date($this->creation_date);
-		$this->setUpdate_date($this->update_date);
-		$this->setSubject_id($this->subject_id);
+	
 	}
 
 	public function getId(){

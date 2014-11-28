@@ -8,19 +8,14 @@ class Subject{
 	private $creation_date;
 	private $category_id;
 	private $freeze;
+	private $db;
+	private $author;
 
-	public function __construct(){
-
-	$this->setId($this->id);
-	$this->setTitle($this->title);
-	$this->setAuthor_id($this->author_id);
-	$this->setCreation_date($this->creation_date);
-	$this->setCategory_id($this->category_id);
-	$this->setFreeze($this->freeze);
-
+	public function __construct($db){
+		$this->db = $db;
 	}
 
-	Public function getId(){
+	public function getId(){
 
 		return $this->id;
 	}
@@ -29,7 +24,7 @@ class Subject{
 		$this->id = $id;
 	}
 
-	Public function getTitle(){
+	public function getTitle(){
 
 		return $this->title;
 	}
@@ -38,7 +33,16 @@ class Subject{
 		$this->title = $title;
 	}
 
-	Public function getAuthor_id(){
+	public function getAuthor()
+	{
+		if (!$this->author)
+		{
+			$manager = new UserManager($this->db);
+			$this->author = $manager->getId($this->author_id);
+		}
+		return $this->author;
+	}
+	public function getAuthor_id(){
 
 		return $this->author_id;
 	}
@@ -47,7 +51,7 @@ class Subject{
 		$this->author_id = $author_id;
 	}
 
-	Public function getCreation_date(){
+	public function getCreation_date(){
 
 		return $this->creation_date;
 	}
@@ -56,7 +60,7 @@ class Subject{
 		$this->creation_date = $creation_date;
 	}
 
-	Public function getCategory_id(){
+	public function getCategory_id(){
 
 		return $this->category_id;
 	}
@@ -65,7 +69,7 @@ class Subject{
 		$this->category_id = $category_id;
 	}
 
-	Public function getFreeze(){
+	public function getFreeze(){
 
 		return $this->freeze;
 	}
