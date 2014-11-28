@@ -7,9 +7,11 @@ class Message{
 	private $creation_date;
 	private $update_date;
 	private $subject_id;
+	private $db;
+	private $author;
 
-	public function __construct(){
-	
+	public function __construct($db){
+	$this->db = $db;
 	}
 
 	public function getId(){
@@ -48,5 +50,20 @@ class Message{
 	public function setSubject_id($subject_id){
 		$this->subject_id=$subject_id;
 	}
+
+	public function getAuthor()
+	{
+		
+		if (!$this->author)
+		{	
+			$manager = new UserManager($this->db);
+			$this->author = $manager->getUser($this->author_id);
+
+			// Pour récupérer le nom de l'auteur on utilise $subject->getAuthor()->getName;
+		}
+		return $this->author;
+	}
+
+
 }
 ?>

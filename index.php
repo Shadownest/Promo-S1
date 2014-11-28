@@ -13,6 +13,12 @@ if(isset($_GET["page"])){
 	$page=$_GET["page"];
 }
 
+if((isset($_GET['page']) && $_GET['page']=="category") || (isset($_GET['page']) && $_GET['page']=="subject")){
+	if(isset($_GET['id'])&& $_GET['id']!=""){
+		require("app/skel.php");
+	}
+}
+
 if(in_array($page,$tab,true)){
 	require("app/skel.php");
 }

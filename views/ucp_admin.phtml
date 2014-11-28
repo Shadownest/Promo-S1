@@ -1,13 +1,20 @@
 <div class="ucp_admin">
-	<div class="col-md-5">
-		<fieldset>
-			<legend>Sélection de catégorie</legend>
-			<label for="category">Catégories</label>
-			<select name="category[]" id="category" multiple>
-				<option value="exemple">exemple</option>
-				<option value="exemple2">exemple2</option>
-			</select>
-		</fieldset>
+	<div class="row">
+		<div class="col-md-5 block">
+			<fieldset>
+				<legend>Sélection de catégorie</legend>
+				<form action="index.php?page=ucp_admin" method="post">
+					<label for="category">Catégories</label>
+					<select class="form-control" name="category[]" id="category" multiple>
+						<option value="exemple">exemple</option>
+						<option value="exemple2">exemple2</option>
+					</select>
+					<button class="button_alert" type="submit"><i class="fa fa-remove"></i>  Supprimer</button>
+				</form>
+				<div class="alert alert-danger">
+					<i class="fa fa-warning"></i> Attention, si vous supprimer une catégorie ses sujets seront transférer dans la catégorie "archives"
+				</div>
+			</fieldset>
+		</div>
 	</div>
-	
 </div>

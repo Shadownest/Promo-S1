@@ -13,6 +13,7 @@ $j=0;
 while($j<count($homeSubject))
 {
 	$Subject=$homeSubject[$j];
+	//require('app/bloc_message.php');
 	require('views/bloc_subject.phtml');
 	$j++;
 }
