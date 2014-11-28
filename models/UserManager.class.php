@@ -66,5 +66,43 @@ class UserManager{
 			return "Erreur interne";
 		}
 	}
+
+	public function changeAvatar($avatar,$name){
+		$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET avatar='".$avatar."' WHERE user.name='".$name."'");
+	}
+
+	public function modifyUser($avatar, $name, $email, $description, $oldPassword, $newPassword, $newPassword2){
+
+		if (strlen($name) < 4){
+			return 'Login trop court';
+		}
+		else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+			return 'email invalide';
+		}
+		else if(!filter_var($avatar, FILTER_VALIDATE_URL)){
+			return 'url invalide';
+		}
+		else{
+			$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET avatar='".$avatar."', name='".$name."', email='".$email."', description='".$description."'");
+		}		
+
+		$password=mysqli_query($this->db, "SELECT password FROM user WHERE name='".$name."'");
+		if($oldPassword==$res){
+			if($newPassword==$newPassword2){
+				if (strlen($newPassword) < 4){
+					return 'Mot de passe trop court';
+				}
+				else{
+					$res=mysqli_query($this->db, "UPDATE `forum`.`user` SET password='".$newPassword."'");
+				}
+			}
+			else{
+				return "Les nouveaux mots de passe saisies ne corrrespondent pas";
+			}
+		}
+		else{
+			return "Vous vous êtes trompé dans la saisie de votre mot de passe";
+		}
+	}
 }
 ?>
