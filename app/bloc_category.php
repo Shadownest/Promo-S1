@@ -19,5 +19,4 @@ $manager = new CategoryManager($db);
 $id = $manager->getCategory($id);
 
 
-
  ?>
