@@ -61,7 +61,8 @@ class CategoryManager{
 	
 	public function getCategory($id)
 	{
-		 $res = mysqli_query($this->db, "SELECT `id`, `title`, `position` FROM `category` WHERE category.id='".$id."'");
+
+		 $res = mysqli_query($this->db, "SELECT `id`, `title`,`position` FROM `category` WHERE category.id='".$id."'");
 		
 		if($res)
 		{

@@ -35,13 +35,15 @@ class Subject{
 
 	public function getAuthor()
 	{
+		
 		if (!$this->author)
 		{	
 			$manager = new UserManager($this->db);
 			$this->author = $manager->getUser($this->author_id);
 
-			// Pour récupérer le nom de l'auteur on utilise $subject->getAuthor()->getName;
+			// Pour récupérer le nom de l'auteur on utilise $subject->getAuthor()->getUser;
 		}
+		
 		return $this->author;
 	}
 	public function getAuthor_id(){

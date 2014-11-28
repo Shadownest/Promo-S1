@@ -12,8 +12,7 @@ $homeSubject = $manager-> displayListSubject($id);
 $j=0;
 while($j<count($homeSubject))
 {
-	$titleSubject=$homeSubject[$j];
-
+	$Subject=$homeSubject[$j];
 	require('views/bloc_subject.phtml');
 	$j++;
 }
