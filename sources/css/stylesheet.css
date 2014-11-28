@@ -127,3 +127,9 @@ button:hover {
 .new_subject a {
 	color: #46494f;
 }
+
+/* ERROR ****************************/
+
+.error_page {
+	margin-left: 600px;
+}
