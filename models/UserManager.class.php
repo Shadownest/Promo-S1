@@ -93,7 +93,7 @@ class UserManager{
 			return "L'url saisie n'est pas valide";
 		}
 	}
-
+/*
 	public function modifyUser($id, $name, $email, $description, $oldPassword, $newPassword, $newPassword2){
 		echo "je suis là";
 		if (strlen($name) < 4){
@@ -148,5 +148,6 @@ class UserManager{
 			}
 		}
 	}
+*/
 }
 ?>
