@@ -1,6 +1,7 @@
 <?php
 
-if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
+require("views/ucp_admin.phtml");
+/*if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){*/
 
 
 	//appel au fichier delete_category.php
@@ -21,13 +22,13 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 		// suppression d'un membre
 
 
-	else{
+	/*else{
 		require("views/ucp_admin.phtml");
 	}
  }
 else{
 	header("Location: index.php?page=home");
-} 
+} */
 
 
 
