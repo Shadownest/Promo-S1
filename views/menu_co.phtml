@@ -1,18 +1,26 @@
-<nav class="nav navbar-default navbar-fixed-top">
+﻿<nav class="nav navbar-default navbar-fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="index.php?page=home"><i class="fa fa-comments-o"></i> Forum</a>
 		<ul class="nav navbar-nav navbar-right">
 			<li>
 				<div class="img_profile">
+<<<<<<< HEAD
 					<img src="<?=$_SESSION['avatar']?>" alt="avatar" class="pull-right">
+=======
+					<img src="<?=$_SESSION['avatar'];?>" alt="avatar" class="pull-right">
+>>>>>>> ac677e0d1b8b06ba60978f857070d23e1b96f459
 				</div>
 			</li>
-			<li>
-				<a href="index.php?page=ucp_user">
-					<?=$_SESSION['name'];?> <i class="fa fa-gears"></i>
+			<li clas="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+					<?=$_SESSION['name'];?> <span class="caret"></span>
 				</a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="index.php?page=<?=$link;?>"><i class="fa fa-gears"></i> Panel</a></li>
+					<li class="divider"></li>
+		         	<li><a href="index.php?page=logout"><i class="fa fa-close"></i> Déconnexion</a></li>
+		        </ul>
 			</li>
-			<li><a href="index.php?page=logout">Déconnexion</a></li>
 		</ul>
 	</div>
 </nav>
