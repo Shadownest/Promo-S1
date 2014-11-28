@@ -18,7 +18,7 @@ class User{
 
 	}
 
-	Public function getId(){
+	public function getId(){
 
 		return $this->id;
 	}
@@ -28,7 +28,7 @@ class User{
 	}
 
 
-	Public function getName(){
+	public function getName(){
 
 		return $this->name;
 	}
@@ -37,7 +37,7 @@ class User{
 		$this->name = $name;
 	}
 
-	Public function getPassword(){
+	public function getPassword(){
 
 		return $this->password;
 	}
@@ -46,7 +46,7 @@ class User{
 		$this->password = $password;
 	}
 
-	Public function getEmail(){
+	public function getEmail(){
 
 		return $this->email;
 	}
@@ -79,7 +79,7 @@ class User{
 
 	}
 
-	Public function getLevel(){
+	public function getLevel(){
 
 		return $this->level;
 	}
@@ -88,7 +88,7 @@ class User{
 		$this->level = $level;
 	}
 
-	Public function getAvatar(){
+	public function getAvatar(){
 
 		return $this->avatar;
 	}
@@ -97,7 +97,7 @@ class User{
 		$this->avatar = $avatar;
 	}
 
-	Public function getDescription(){
+	public function getDescription(){
 
 		return $this->description;
 	}
