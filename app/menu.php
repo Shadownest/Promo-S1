@@ -1,5 +1,4 @@
 <?php 
-var_dump($_SESSION);
 if (isset($_SESSION["id"])){
 	if($_SESSION['admin']){
 		$link="ucp_admin";
