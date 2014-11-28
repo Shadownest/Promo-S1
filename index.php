@@ -7,7 +7,7 @@ require("autoload.php");
 
 $page="home";
 
-$tab=array("home","register","login","logout", "ucp_admin", "ucp_user");
+$tab=array("home","register","login","logout", "ucp_admin", "ucp_user", "delete_subject", "edit_subject");
 
 if(isset($_GET["page"])){
 	$page=$_GET["page"];

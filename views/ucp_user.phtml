@@ -7,7 +7,7 @@
 		<h4>Avatar</h4>
 		<div class="col-md-5">
 			<a href="#" class="thumbnail">
-	  			<img data-src="holder.js/100%x180" src="<?=$_SESSION['avatar']?>" alt="avatar">
+	  			<img data-src="holder.js/100%x180" src="<?=$user->getAvatar()?>" alt="avatar">
 			</a>
 		</div>
 		<div class="col-md-7">
@@ -17,7 +17,7 @@
 					<span class="input-group-btn">
 				        <span class="btn btn-default"><i class="fa fa-area-chart"></i></span>
 				     </span>
-					<input type="text" class="form-control" id="av" placeholder="URL" name="avatar" value="<?=$_SESSION['avatar']?>">
+					<input type="text" class="form-control" id="av" placeholder="URL" name="avatar" value="">
 					<?=$avatar_modif?>
 				</div>
 
@@ -36,11 +36,11 @@
 			</div>
 			<div class="form-group">
 				<label for="email">Email</label>
-				<input type="email" class="form-control" name="email" value="<?=$_SESSION['email']?>">
+				<input type="email" class="form-control" name="email" value="<?=$user->getEmail()?>">
 			</div>
 			<div class="form-group">
 				<label for="desc">Status</label>
-				<textarea name="description" id="desc" cols="10" rows="2" class="form-control"><?=$_SESSION['description']?></textarea>
+				<textarea name="description" id="desc" cols="10" rows="2" class="form-control"><?=$user->getDescription()?></textarea>
 			</div>
 
 			<h4>Modifier mon mot de passe</h4>
