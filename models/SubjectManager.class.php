@@ -1,5 +1,9 @@
 <?php
+/*
 
+	IL MANQUE UN public function getSubject($id) !!!!
+
+*/
 class SubjectManager{
 
 	private $db;

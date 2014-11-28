@@ -1,4 +1,9 @@
 <?php 
+/*
+
+	IL MANQUE UN public function getSubject() !!!!
+
+*/
 
 class Message{
 	private $id;
