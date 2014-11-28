@@ -44,7 +44,7 @@ class CategoryManager{
 	{	$requete = "SELECT `id`,`title`FROM `category` ORDER BY `position`";
 		
 		$res = mysqli_query($this->db, $requete);
-		//print_r($res);
+		
 		if ($res)
 
 		{		$list = array();	
@@ -53,7 +53,7 @@ class CategoryManager{
 				$list[] = $category;
 			
 				}
-		     //var_dump($list);
+		   
 		     return $list;
 
 		}
@@ -61,7 +61,7 @@ class CategoryManager{
 	
 	public function getCategory($id)
 	{
-		 $res = mysqli_query($this->db, "SELECT `title` FROM `category` WHERE category.id='".$id."'");
+		 $res = mysqli_query($this->db, "SELECT `id`, `title`, `position` FROM `category` WHERE category.id='".$id."'");
 		
 		if($res)
 		{

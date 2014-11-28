@@ -13,7 +13,7 @@ $j=0;
 while($j<count($homeSubject))
 {
 	$titleSubject=$homeSubject[$j];
-	
+
 	require('views/bloc_subject.phtml');
 	$j++;
 }

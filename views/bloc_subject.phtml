@@ -7,10 +7,10 @@
 		<a href="#"><strong><?=$titleSubject->getTitle();?></strong></a>
 	</div>
 	<div class="col-md-2">
-		<i>exemple</i>
+		<i><?=$titleSubject->getAuthor()->getName();?></i>
 	</div>
 	<div class="col-md-2">
-		<p>date</p>
+		<p><?=$titleSubject->getCreation_date();?></p>
 	</div>
 	<div class="col-md-3">
 		<i>Dernier message par : Hugo</i>

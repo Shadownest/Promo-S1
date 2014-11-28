@@ -94,7 +94,7 @@ class UserManager{
 		}
 	}
 
-	public function modifyUser($id, $name, $email, $description, $oldPassword, $newPassword, $newPassword2){
+	/*public function modifyUser($id, $name, $email, $description, $oldPassword, $newPassword, $newPassword2){
 		echo "je suis là";
 		if (strlen($name) < 4){
 			return 'Login trop court';
@@ -147,6 +147,6 @@ class UserManager{
 				return "Vous vous êtes trompé dans la saisie de votre mot de passe";
 			}
 		}
-	}
+	}*/
 }
 ?>
