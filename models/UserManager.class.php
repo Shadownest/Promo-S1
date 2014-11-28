@@ -136,5 +136,37 @@ class UserManager{
 			}
 		}
 	}
+
+	// UPC Admin
+
+
+	// affichage liste utilisateurs
+	public function displayUsers(){
+
+	 $res=mysqli_query($this->db, "SELECT id, name, date_creation, level FROM user");
+	 if($res){
+	 	$user = mysqli_fetch_object($user, "User");
+	 	return $user; 
+	 	}
+		return null;
+	}
+
+
+	//mise à jour du compte utilisateur : moderation ou non
+
+
+	
+
+	
+	//suprimer un compte utilisateur
+
+
+	public function deleteUser(){
+
+	mysqli_query($this->db, "DELETE `user` WHERE id='".$id."' ");
+	header("Location: index.php?page=ucp_admin");
+	exit();
+
+	}
 }
 ?>
