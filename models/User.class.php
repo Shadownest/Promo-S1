@@ -69,16 +69,16 @@ class User{
 
 	public function isAdmin(){
 
-		return $this->admin;
+		return $this->level == "admin";
 
 	}
 
 	public function isModerator(){
 
-		return $this->moderator;
+		return $this->level == "moderator";
 
 	}
-
+	
 	public function getLevel(){
 
 		return $this->level;

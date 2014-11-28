@@ -15,8 +15,8 @@ while($i<count($homeCategory))
 }
 ///////////////////////////////////////////////////
 // une categorie 
-/* $manager = new CategoryManager($db);
+ /*$manager = new CategoryManager($db);
 $id = $manager->getCategory($id);
-
 */
+
  ?>
