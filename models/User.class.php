@@ -16,14 +16,6 @@ class User{
 
 	public function __construct(){
 
-	$this->setId($this->id);
-	$this->setName($this->name);
-	$this->setPassword($this->password);
-	$this->setEmail($this->email);
-	$this->setLevel($this->level);
-	$this->setAvatar($this->avatar);
-	$this->setDescription($this->description);
-
 	}
 
 	Public function getId(){

@@ -6,9 +6,7 @@ class Category{
 	private $position;
 
 	public function __construct(){
-		$this->setId($this->id);
-		$this->setTitle($this->title);
-		$this->setPosition($this->position);
+		
 	}
 
 	public function getId(){

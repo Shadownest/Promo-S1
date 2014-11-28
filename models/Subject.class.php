@@ -10,14 +10,7 @@ class Subject{
 	private $freeze;
 
 	public function __construct(){
-
-	$this->setId($this->id);
-	$this->setTitle($this->title);
-	$this->setAuthor_id($this->author_id);
-	$this->setCreation_date($this->creation_date);
-	$this->setCategory_id($this->category_id);
-	$this->setFreeze($this->freeze);
-
+		
 	}
 
 	Public function getId(){

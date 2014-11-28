@@ -7,7 +7,7 @@
 		<h4>Avatar</h4>
 		<div class="col-md-5">
 			<a href="#" class="thumbnail">
-	  			<img data-src="holder.js/100%x180" src="" alt="avatar">
+	  			<img data-src="holder.js/100%x180" src="<?=$_SESSION['avatar']?>" alt="avatar">
 			</a>
 		</div>
 		<div class="col-md-7">
@@ -17,7 +17,8 @@
 					<span class="input-group-btn">
 				        <span class="btn btn-default"><i class="fa fa-area-chart"></i></span>
 				     </span>
-					<input type="text" class="form-control" id="av" placeholder="URL" name="avatar">
+					<input type="text" class="form-control" id="av" placeholder="URL" name="avatar" value="<?=$_SESSION['avatar']?>">
+					<?=$avatar_modif?>
 				</div>
 
 				<button type="submit" class="pull-right"><i class="fa fa-photo"></i> Valider</button>
@@ -31,15 +32,15 @@
 			<hr>
 			<div class="form-group">
 				<label for="name">Pseudo</label>
-				<input type="text" class="form-control" name="name">
+				<input type="text" class="form-control" name="name" value="<?=$_SESSION['name']?>">
 			</div>
 			<div class="form-group">
 				<label for="email">Email</label>
-				<input type="email" class="form-control" name="email">
+				<input type="email" class="form-control" name="email" value="<?=$_SESSION['email']?>">
 			</div>
 			<div class="form-group">
 				<label for="desc">Status</label>
-				<textarea name="description" id="desc" cols="10" rows="2" class="form-control"></textarea>
+				<textarea name="description" id="desc" cols="10" rows="2" class="form-control"><?=$_SESSION['description']?></textarea>
 			</div>
 
 			<h4>Modifier mon mot de passe</h4>
@@ -54,7 +55,7 @@
 			</div>
 			<div class="form-group">
 				<label for="newPassword2">Confirmer mot de passe</label>
-				<input type="password" class="form-control" name="newPassword">
+				<input type="password" class="form-control" name="newPassword2">
 			</div>
 
 			<button type="submit"><i class="fa fa-edit"></i> Valider</button>
