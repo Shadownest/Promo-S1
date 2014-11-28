@@ -10,6 +10,8 @@ class CategoryManager{
 
 	}
 
+	//panel admin
+
 	public function categoriesAdmin(){
 
 	$res=mysqli_query($this->db, "SELECT title from category");
@@ -31,6 +33,11 @@ class CategoryManager{
 	//mysqli_query($this->db, "INSERT INTO `forum` ");
 		
 	}
+
+
+
+
+	//homepage
 
 	public function displayListCategory()
 
