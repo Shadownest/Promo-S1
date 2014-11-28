@@ -62,6 +62,10 @@ button:hover {
 	background: #C73434;
 }
 
+.button_success {
+	background: #f0ad4e;
+}
+
 .button_alert {
 	margin: 10px 0;
 }
@@ -89,7 +93,7 @@ button:hover {
 	margin-top: 20px;
 }
 
-.block_av {
+.block_mt {
 	margin-top: 20px;
 }
 
