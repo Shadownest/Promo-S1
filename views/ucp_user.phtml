@@ -2,8 +2,51 @@
 	<fieldset>
 		<legend>Modifier mon profil</legend>
 	</fieldset>
-
+<div class="row">
 	<div class="col-md-5 block">
+		<form action="index.php?page=ucp_user" method="post">
+			<h4>Modifier mes informations</h4>
+			<hr>
+			<div class="form-group">
+				<label for="name">Pseudo</label>
+				<input type="text" class="form-control" name="name" value="<?=$_SESSION['name']?>">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" name="email" value="<?=$user->getEmail()?>">
+			</div>
+			<hr>
+			<div class="form-group">
+				<label for="desc">Status</label>
+				<textarea name="description" id="desc" cols="10" rows="2" class="form-control"><?=$user->getDescription()?></textarea>
+			</div>
+			<button class="btn-block" type="submit"><i class="fa fa-edit"></i> Valider</button>
+		</form>
+	</div>
+
+	<div class="col-md-offset-2 col-md-5 block">
+			<h4>Modifier mon mot de passe</h4>
+			<hr>
+			<div class="form-group">
+				<label for="oldPassword">Ancien de mot de passe</label>
+				<input type="password" class="form-control" name="password">
+			</div>
+			<div class="form-group">
+				<label for="newPassword">Nouveau mot de passe</label>
+				<input type="password" class="form-control" name="newPassword">
+			</div>
+			<div class="form-group">
+				<label for="newPassword2">Confirmer mot de passe</label>
+				<input type="password" class="form-control" name="newPassword2">
+			</div>
+
+			<button class="btn-block" type="submit"><i class="fa fa-edit"></i> Valider</button>
+		</form>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-5 block block_av">
 		<h4>Avatar</h4>
 		<div class="col-md-5">
 			<a href="#" class="thumbnail">
@@ -25,40 +68,5 @@
 			</form>
 		</div>
 	</div>
-
-	<div class="col-md-offset-2 col-md-5 block">
-		<form action="index.php?page=ucp_user" method="post">
-			<h4>Modifier mes informations</h4>
-			<hr>
-			<div class="form-group">
-				<label for="name">Pseudo</label>
-				<input type="text" class="form-control" name="name" value="<?=$_SESSION['name']?>">
-			</div>
-			<div class="form-group">
-				<label for="email">Email</label>
-				<input type="email" class="form-control" name="email" value="<?=$user->getEmail()?>">
-			</div>
-			<div class="form-group">
-				<label for="desc">Status</label>
-				<textarea name="description" id="desc" cols="10" rows="2" class="form-control"><?=$user->getDescription()?></textarea>
-			</div>
-
-			<h4>Modifier mon mot de passe</h4>
-			<hr>
-			<div class="form-group">
-				<label for="oldPassword">Ancien de mot de passe</label>
-				<input type="password" class="form-control" name="password">
-			</div>
-			<div class="form-group">
-				<label for="newPassword">Nouveau mot de passe</label>
-				<input type="password" class="form-control" name="newPassword">
-			</div>
-			<div class="form-group">
-				<label for="newPassword2">Confirmer mot de passe</label>
-				<input type="password" class="form-control" name="newPassword2">
-			</div>
-
-			<button type="submit"><i class="fa fa-edit"></i> Valider</button>
-		</form>
-	</div>
+</div>	
 </div>
