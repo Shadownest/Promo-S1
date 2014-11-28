@@ -20,7 +20,7 @@ class SubjectManager{
 		if ($res)
 
 		{		$list = array();	
-				while ($subject = mysqli_fetch_object($res, "Subject"))
+				while ($subject = mysqli_fetch_object($res, "Subject", array($this->db)))
 				{
 				$list[] = $subject;
 			
