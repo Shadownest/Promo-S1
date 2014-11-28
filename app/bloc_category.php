@@ -14,6 +14,5 @@ while($i<count($homeCategory))
 $id=1;
 $manager = new CategoryManager($db);
 $id = $manager->getCategory($id);
-var_dump($id);
 
  ?>
