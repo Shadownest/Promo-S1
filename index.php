@@ -7,16 +7,10 @@ require("autoload.php");
 
 $page="home";
 
-$tab=array("home","register","login","logout", "ucp_admin", "ucp_user", "delete_subject", "edit_subject", "404");
+$tab=array("home","register","login","logout", "ucp_admin", "ucp_user", "delete_subject", "edit_subject", "404", "category", "subject");
 
 if(isset($_GET["page"])){
 	$page=$_GET["page"];
-}
-
-if((isset($_GET['page']) && $_GET['page']=="category") || (isset($_GET['page']) && $_GET['page']=="subject")){
-	if(isset($_GET['id'])&& $_GET['id']!=""){
-		require("app/skel.php");
-	}
 }
 
 if(in_array($page,$tab,true)){
