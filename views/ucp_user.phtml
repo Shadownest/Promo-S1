@@ -7,6 +7,7 @@
 		<form action="index.php?page=ucp_user" method="post">
 			<h4>Modifier mes informations</h4>
 			<hr>
+			<br><div class="alert-warning"><?=$modification?></div>
 			<div class="form-group">
 				<label for="name">Pseudo</label>
 				<input type="text" class="form-control" name="name" value="<?=$_SESSION['name']?>">
@@ -27,6 +28,7 @@
 	<div class="col-md-offset-2 col-md-5 block">
 			<h4>Modifier mon mot de passe</h4>
 			<hr>
+			<br><div class="alert-warning"><?=$modification_password?></div>
 			<div class="form-group">
 				<label for="oldPassword">Ancien de mot de passe</label>
 				<input type="password" class="form-control" name="password">
@@ -61,7 +63,7 @@
 				        <span class="btn btn-default"><i class="fa fa-area-chart"></i></span>
 				     </span>
 					<input type="text" class="form-control" id="av" placeholder="URL" name="avatar" value="">
-					<?=$avatar_modif?>
+					<br><div class="alert-warning"><?=$avatar_modif?></div>
 				</div>
 
 				<button type="submit" class="pull-right"><i class="fa fa-photo"></i> Valider</button>

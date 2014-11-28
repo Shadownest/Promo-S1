@@ -106,6 +106,7 @@ class UserManager{
 		else{
 			$description= mysqli_real_escape_string($this->db, $description);
 			$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET name='".$name."', email='".$email."', description='".$description."' WHERE user.id='".$id."'");
+			return 'Informations personnelles mise à jours';
 		}		
 	}
 
@@ -117,7 +118,6 @@ class UserManager{
 			$user=mysqli_fetch_object($password,"User");
 
 			if($user->verifPassword($oldPassword)){
-				echo "ohé";
 				if($newPassword==$newPassword2){
 					if (strlen($newPassword) < 4){
 						return 'Mot de passe trop court';
@@ -125,6 +125,7 @@ class UserManager{
 					else{
 						$newPassword = password_hash($newPassword, PASSWORD_BCRYPT, ['cost'=>14]);
 						$res=mysqli_query($this->db, "UPDATE `forum`.`user` SET password='".$newPassword."' WHERE id='".$id."'");
+						return 'Mot de passe modifié avec succès';
 					}
 				}
 				else{
