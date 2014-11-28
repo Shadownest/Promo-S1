@@ -3,7 +3,8 @@
 
 /////////////////////////////////////////////////////
 // la liste des sujects de chaque categorie
-$id=1;
+//$id = $titleCategory->getId();
+$id=$homeCategory[$i]->getId();
 $manager = new SubjectManager($db);
 $homeSubject = $manager-> displayListSubject($id);
 

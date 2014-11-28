@@ -41,7 +41,7 @@ class CategoryManager{
 
 	public function displayListCategory()
 
-	{	$requete = "SELECT `title`FROM `category` ORDER BY `position`";
+	{	$requete = "SELECT `id`,`title`FROM `category` ORDER BY `position`";
 		
 		$res = mysqli_query($this->db, $requete);
 		//print_r($res);
