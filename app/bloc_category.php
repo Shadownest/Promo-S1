@@ -1,5 +1,6 @@
 <?php 
-
+/////////////////////////////////////////////////////////
+// la liste des categories 
 $manager = new CategoryManager($db);
 $homeCategory = $manager -> displayListCategory();
 
@@ -11,9 +12,12 @@ while($i<count($homeCategory))
 	require('views/bloc_category.phtml');
 	$i++;
 }
+///////////////////////////////////////////////////
+// une categorie 
 $id=1;
 $manager = new CategoryManager($db);
 $id = $manager->getCategory($id);
-var_dump($id);
+
+
 
  ?>
