@@ -11,8 +11,9 @@ while($i<count($homeCategory))
 	require('views/bloc_category.phtml');
 	$i++;
 }
-
-$c = $manager->getCategory($id);
-var_dump($c);
+$id=1;
+$manager = new CategoryManager($db);
+$id = $manager->getCategory($id);
+var_dump($id);
 
  ?>

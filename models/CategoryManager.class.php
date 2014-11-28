@@ -51,6 +51,7 @@ class CategoryManager{
 
 		}
 	}
+	
 	public function getCategory($id)
 	{
 		 $res = mysqli_query($this->db, "SELECT `title` FROM `category` WHERE category.id='".$id."'");
@@ -59,7 +60,7 @@ class CategoryManager{
 		{
 			$category = mysqli_fetch_object($res, "Category");
 			if($category)
-				var_dump($category);
+			
 				{
 					return $category;
 				}
