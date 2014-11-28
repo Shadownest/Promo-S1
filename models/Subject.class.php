@@ -39,6 +39,8 @@ class Subject{
 		{
 			$manager = new UserManager($this->db);
 			$this->author = $manager->getId($this->author_id);
+
+			// Pour récupérer le nom de l'auteur on utilise $subject->getAuthor()->getName;
 		}
 		return $this->author;
 	}

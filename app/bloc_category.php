@@ -7,6 +7,7 @@ $homeCategory = $manager -> displayListCategory();
 $i=0;
 while($i<count($homeCategory))
 {
+	
 	$titleCategory=$homeCategory[$i];
 	
 	require('views/bloc_category.phtml');
@@ -14,9 +15,8 @@ while($i<count($homeCategory))
 }
 ///////////////////////////////////////////////////
 // une categorie 
-$id=1;
-$manager = new CategoryManager($db);
+/* $manager = new CategoryManager($db);
 $id = $manager->getCategory($id);
 
-
+*/
  ?>
