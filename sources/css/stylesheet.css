@@ -106,3 +106,24 @@ button:hover {
 .category_title a:hover {
 	text-decoration: none;
 }
+
+/* SUBJECT ****************************/
+
+.subject {
+	background: #f8f8f8;
+	box-shadow: 0px 0px 2px #fff;
+	padding: 0 10px;
+}
+
+.subject > .row {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.new_subject {
+	border-bottom: 1px solid #eee;
+}
+
+.new_subject a {
+	color: #46494f;
+}
