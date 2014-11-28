@@ -1,1 +1,0 @@
-// ajax pour sup catégorie 
