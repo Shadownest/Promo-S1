@@ -67,6 +67,17 @@ class UserManager{
 		}
 	}
 
+	public function getUser($id){
+		$res=mysqli_query($this->db, "SELECT id, name, password, email, level, avatar, description, creation_date FROM user WHERE id='".$id."'");
+		if($res){
+			$user=mysqli_fetch_object($res, "User");
+			if($user){
+				return $user;
+			}
+		}
+
+	}
+
 	public function changeAvatar($avatar,$name){
 
 		if(filter_var($avatar, FILTER_VALIDATE_URL)){
