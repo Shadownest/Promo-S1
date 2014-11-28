@@ -2,7 +2,37 @@
 
 if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
-	if (isset($_POST['categories_admin'])){
+
+	//appel au fichier delete_category.php
+
+
+
+	// gestion des categories
+
+		//suppression
+
+		// modification
+
+
+	// gestion des membres
+
+
+		// gestion moderation
+		// suppression d'un membre
+
+
+	else{
+		require("views/ucp_admin.phtml");
+	}
+ }
+else{
+	header("Location: index.php?page=home");
+} 
+
+
+
+
+/*if (isset($_POST['categories_admin'])){
 
 		$manager = new CategoryManager($db);
 		$category = $manager->categoriesAdmin($_POST['categories_admin']);
@@ -28,18 +58,11 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
 		header("Location: index.php?page=ucp_admin");
 		exit();
-	}
+	}*/
 
 
 
 
-	else{
-		require("views/ucp_admin.phtml");
-	}
- }
-else{
-	header("Location: index.php?page=home");
-} 
 
 
 ?>
