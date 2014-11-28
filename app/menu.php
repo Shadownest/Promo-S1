@@ -1,12 +1,11 @@
 <?php 
 if (isset($_SESSION["id"])){
 	if($_SESSION['admin']){
-		$link="ucp_admin";
+		require("views/menu_admin.phtml");
 	}
 	else{
-		$link="ucp_user";
+		require("views/menu_co.phtml");	
 	}
-	require("views/menu_co.phtml");
 }
 else 
 	require("views/menu.phtml");

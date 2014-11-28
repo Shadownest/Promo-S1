@@ -94,54 +94,37 @@ class UserManager{
 		}
 	}
 
-
-	
-
-/*
-	public function modifyUser($id, $name, $email, $description, $oldPassword, $newPassword, $newPassword2){
-
-		echo "je suis là";
+	public function modifyUser($id, $name, $email, $description)
+	{
+		$name= mysqli_real_escape_string($this->db, $name);
 		if (strlen($name) < 4){
 			return 'Login trop court';
 		}
 		else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			return 'email invalide';
 		}
-		else if(isset($name, $email, $description){
-			$name = mysqli_real_escape_string($this->db, $name);
-
-			$verif=mysqli_query($this->db, "SELECT name FROM user WHERE name='".$name."'");
-			$result=mysqli_num_rows($verif);
-
-			if($result==0){
-
-				$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET name='".$name."', email='".$email."', description='".$description."' WHERE user.id='".$id."'");
-
-				$res=mysqli_query($this->db, "SELECT name, email FROM user WHERE name='".$name."' AND email='".$email."'");
-
-				if($res){
-					$user=mysqli_fetch_object($res, "User");
-					if($user){
-						return $user;
-					}
-				}
-				exit();
-			}
-			else{
-				return "Le login est déjà pris";
-			}
+		else{
+			$description= mysqli_real_escape_string($this->db, $description);
+			$request=mysqli_query($this->db, "UPDATE `forum`.`user` SET name='".$name."', email='".$email."', description='".$description."' WHERE user.id='".$id."'");
 		}		
+	}
 
-		if(isset($oldPassword, $newPassword, $newPassword2) && $oldPassword!="" && $newPassword!="" && $newPassword2!=""){
-			$password=mysqli_query($this->db, "SELECT password FROM user WHERE name='".$name."'");
-			if($oldPassword==$res){
+	public function modifyPasswordUser($id, $oldPassword, $newPassword, $newPassword2)
+	{
+		$password=mysqli_query($this->db, "SELECT password FROM user WHERE id='".$id."'");
+
+		if($password){
+			$user=mysqli_fetch_object($password,"User");
+
+			if($user->verifPassword($oldPassword)){
+				echo "ohé";
 				if($newPassword==$newPassword2){
 					if (strlen($newPassword) < 4){
 						return 'Mot de passe trop court';
 					}
 					else{
 						$newPassword = password_hash($newPassword, PASSWORD_BCRYPT, ['cost'=>14]);
-						$res=mysqli_query($this->db, "UPDATE `forum`.`user` SET password='".$newPassword."'");
+						$res=mysqli_query($this->db, "UPDATE `forum`.`user` SET password='".$newPassword."' WHERE id='".$id."'");
 					}
 				}
 				else{
@@ -151,10 +134,7 @@ class UserManager{
 			else{
 				return "Vous vous êtes trompé dans la saisie de votre mot de passe";
 			}
-
-	}*/
-
-
-
+		}
+	}
 }
 ?>
