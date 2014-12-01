@@ -173,7 +173,7 @@ button:hover {
 
 /* CHAT ****************************/
 
-.aff_chat {
+#aff_chat {
 	height: 250px;
 	width: 1000px;
 	margin-left: 55px;
