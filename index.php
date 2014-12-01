@@ -14,8 +14,12 @@ if(isset($_GET["page"])){
 }
 
 if(in_array($page,$tab,true)){
-	require("app/skel.php");
+	if(isset($_GET["ajax"]) && $_GET["ajax"]=="true")
+		require("app/content.php");
+	else
+		require("app/skel.php");
 }
+
 else{
 	header("Location: index.php?page=404");
 	exit();
