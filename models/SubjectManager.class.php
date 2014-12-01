@@ -41,20 +41,38 @@ class SubjectManager{
 	public function getSubject($id)
 	{
 		 $res = mysqli_query($this->db, "SELECT `id`, `title`,`author_id`, `creation_date`, `category_id`, `freeze` FROM `subject` WHERE id='".$id."'");
-		
 		if($res)
 		{
 			$subject = mysqli_fetch_object($res, "Subject", array($this->db));
 			if($subject)
-			
 				{
 					return $subject;
 				}
 		}
-
 	return null;
 
 	}	
+
+	public function deleteSubject($id)
+	{
+		$res = mysqli_query($this->db,"DELETE FROM `subject` WHERE id='".$id."'");
+		if($res)
+		{
+			$deletesubject = mysqli_fetch_object($res, "Subject", array($this->db));
+			if($deletesubject)
+			{
+				return $deletesubject;
+			}
+
+		}
+		return null;
+	}
+
+
+
+
+
+
 }
 
 ?>

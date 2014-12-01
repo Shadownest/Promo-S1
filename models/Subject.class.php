@@ -85,6 +85,8 @@ class Subject{
 
 		$this->freeze = $freeze;
 	}
+	
+
 
 
 }
