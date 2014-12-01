@@ -44,7 +44,7 @@ class SubjectManager{
 		
 		if($res)
 		{
-			$subject = mysqli_fetch_object($res, "Subject");
+			$subject = mysqli_fetch_object($res, "Subject", array($this->db));
 			if($subject)
 			
 				{
