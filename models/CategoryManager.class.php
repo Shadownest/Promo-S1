@@ -10,9 +10,12 @@ class CategoryManager{
 
 	}
 
-	//panel admin
+	//---------------------------- ucp admin -----------------------------------
 
-	public function categoriesAdmin(){
+
+
+	/*public function displayCategoriesList(){
+	//génération d'une liste des categories
 
 	$res=mysqli_query($this->db, "SELECT title from category");
 	if($res){
@@ -24,17 +27,23 @@ class CategoryManager{
 
 	public function deleteCategory(){
 
-	mysqli_query($this->db, "DELETE FROM category WHERE ");
+	//tranférer sujets de la catégorie à supprimer :
+	
+	mysql_query($this->db, "UPDATE `forum`.`subjects` SET `category`.`id`='3' WHERE `category`.`id`=''");
+
+	//suppression de la categorie selectionnee :
+
+	mysqli_query($this->db, "DELETE FROM category WHERE id='' ");
 		
 	}
+
 
 	public function createCategory(){
 
-	//mysqli_query($this->db, "INSERT INTO `forum` ");
-		
-	}
-
-
+	//creation  d'une nouvelle categorie
+	mysqli_query($this->db, "INSERT INTO `forum`.`category`(title, position) VALUES ('".$title."', '".$position."')");
+	
+	}*/
 
 
 	//homepage

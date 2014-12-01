@@ -1,7 +1,7 @@
 
 <div class="row new_subject">
 	<div class="col-md-5">
-		<a href="index.php?page=bloc_subject&id=<?=$Subject->getId()?>"><strong><?=$Subject->getTitle();?></strong></a>
+		<a href="index.php?page=subject&id=<?=$Subject->getId();?>"><strong><?=$Subject->getTitle();?></strong></a>
 	</div>
 	<div class="col-md-2">
 		<i><?=$Subject->getAuthor()->getName();?></i>
@@ -10,7 +10,7 @@
 		<p><?=$Subject->getCreation_date();?></p>
 	</div>
 	<div class="col-md-3">
-		<i><?=$lastAuthor?></i>
+		<i>Dernier message par : <?=$lastMessage["name"]?></i>
 	</div>
 	<div class="subject">
 		

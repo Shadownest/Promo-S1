@@ -1,8 +1,17 @@
 <?php 
 // la liste des sujects de chaque categorie
+<<<<<<< HEAD
+=======
+//$id = $titleCategory->getId();
+$id=$titleCategory->getId();
+
+$manager = new SubjectManager($db);
+$homeSubject = $manager-> displayListSubject($id);
+>>>>>>> a99d9ed86e661435722c1c77948ba1b7e95ea092
 
 if (!isset($_GET["id"]))
 {
+<<<<<<< HEAD
 	$id=$homeCategory[$i]->getId();
 	$manager = new SubjectManager($db);
 	$homeSubject = $manager-> displayListSubject($id);
@@ -35,3 +44,21 @@ else
 	require('app/bloc_message.php');
 }
 ?>
+=======
+	$Subject=$homeSubject[$j];
+
+	$lastMessage= mysqli_query($db, "SELECT `user`.`name` FROM `message`LEFT JOIN user ON message.author_id=user.id LEFT JOIN subject ON message.subject_id=subject.id LEFT JOIN category ON message.subject_id=subject.id and subject.category_id=category.id WHERE category.id='".$id."' ORDER BY message.subject_id DESC LIMIT 1");
+	if($lastMessage){
+		$lastMessage=mysqli_fetch_assoc($lastMessage);
+	}
+
+	require('views/bloc_subject.phtml');
+	$j++;
+}
+
+/*$manager = new SubjectManager($db);
+$id = $manager->getSubject($id);*/
+
+
+ ?>
+>>>>>>> a99d9ed86e661435722c1c77948ba1b7e95ea092

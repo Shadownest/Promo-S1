@@ -38,11 +38,23 @@ class SubjectManager{
 
 	}
 
+	public function getSubject($id)
+	{
+		 $res = mysqli_query($this->db, "SELECT `id`, `title`,`author_id`, `creation_date`, `category_id`, `freeze` FROM `subject` WHERE category.id='".$id."'");
+		
+		if($res)
+		{
+			$subject = mysqli_fetch_object($res, "Subject");
+			if($subject)
+			
+				{
+					return $subject;
+				}
+		}
 
+	return null;
+
+	}	
 }
-
-
-
-
 
 ?>
