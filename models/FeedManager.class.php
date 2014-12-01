@@ -11,7 +11,7 @@ class FeedManager
 	{
 		$feedList = array();
 		$feedId = intval($last);
-		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date ASC LIMIT 20");
+		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,history.author AS author_id, user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date ASC LIMIT 20");
 		while ($dataFeed = mysqli_fetch_assoc($resFeed))
 		{
 			$feedTmp = array('id'=>$dataFeed['id']);
@@ -25,7 +25,7 @@ class FeedManager
 	public function displayLastFeed()
 	{
 		$feedId = 0;
-		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date ASC LIMIT 20");
+		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,history.author AS author_id, user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date ASC LIMIT 20");
 		while ($dataFeed = mysqli_fetch_assoc($resFeed))
 		{
 			require('views/feed.phtml');
