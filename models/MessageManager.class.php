@@ -62,7 +62,7 @@ class MessageManager{
 	}
 	public function getMessage($id)
 	{
-		 $res = mysqli_query($this->db, "SELECT `id`, `text`,`author_id`, `creation_date`, `update_date`, `subject_id` FROM `message` WHERE category.id='".$id."'");
+		 $res = mysqli_query($this->db, "SELECT `id`, `text`,`author_id`, `creation_date`, `update_date`, `subject_id` FROM `message` WHERE id='".$id."'");
 		
 		if($res)
 		{
