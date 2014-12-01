@@ -9,7 +9,7 @@ if(isset($_GET['id']) && $_GET['id']){
 	$i=0;
 	while($i<count($homeMessage))
 	{
-		$Message=$homeMessage[$k];
+		$Message=$homeMessage[$i];
 		//require('views/bloc_subject.phtml');
 		require('views/bloc_message.phtml');
 		$i++;

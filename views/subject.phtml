@@ -1,1 +1,9 @@
+<div class="row">
+	<h1>Vous êtes à la catégorie <?=$titleSubject->getTitle();?> <i class="fa fa-comment"></i></h1>
+
+	<div class="col-md-12 category_title">
+		<a href="index.php?page=subject&id=<?=$titleSubject->getId()?>"><i class="fa fa-comment-o"></i> <?=$titleSubject->getTitle();?></a>
+	</div>
+</div>
+
 <div><?php require("app/message.php"); ?></div>
