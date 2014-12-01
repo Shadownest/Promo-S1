@@ -14,6 +14,8 @@ class Subject{
 	private $category_id;
 	private $freeze;
 	private $author;
+	private $category;
+	private $messages;
 
 	public function __construct($db){
 		$this->db = $db;
@@ -49,6 +51,24 @@ class Subject{
 		}
 		
 		return $this->author;
+	}
+	public function getCategory()
+	{
+		if (!$this->category)
+		{	
+			$manager = new CategoryManager($this->db);
+			$this->category = $manager->getCategory($this->category_id);
+		}
+		return $this->category;
+	}
+	public function getMessages()
+	{
+		if (!$this->messages)
+		{	
+			$manager = new MessageManager($this->db);
+			$this->messages = $manager->getMessageListBySubject($this->id);
+		}
+		return $this->messages;
 	}
 	public function getAuthor_id(){
 
