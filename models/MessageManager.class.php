@@ -19,7 +19,7 @@ class MessageManager{
 	public function displayListMessage($id)
 	{
 
-		$requete = "SELECT `message`.`id`, `message`.`text`, `user`.`name`, `message`.`creation_date`, `message`.`update_date`, `subject`.`title` FROM `message` LEFT JOIN user ON message.author_id=user.id LEFT JOIN subject ON message.subject_id=subject.id WHERE message.subject_id='".$id."'";
+		$requete = "SELECT author_id, `message`.`id`, `message`.`text`, `user`.`name`, `message`.`creation_date`, `message`.`update_date`, `subject`.`title` FROM `message` LEFT JOIN user ON message.author_id=user.id LEFT JOIN subject ON message.subject_id=subject.id WHERE message.subject_id='".$id."'";
 		
 		$res = mysqli_query($this->db, $requete);
 	
@@ -32,7 +32,7 @@ class MessageManager{
 				$list[] = $message;
 			
 				}
-		     
+
 		     return $list;
 
 		}
