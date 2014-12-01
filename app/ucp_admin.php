@@ -76,6 +76,6 @@
  }
 else{
 	header("Location: index.php?page=home");
-}*/
+}*/	
 
 ?>
