@@ -39,6 +39,29 @@ class MessageManager{
 
 	}
 
+	public function displayLastMessageOfSubject($id)
+	{
+
+		$requete = "SELECT `id`, `text`, `author_id`, `creation_date`, `update_date`, `subject_id` FROM `message` WHERE subject_id='".$id."' ORDER BY creation_date DESC limit 1 ";
+		
+		$res = mysqli_query($this->db, $requete);
+		if ($res)
+		{		
+				$list = array();	
+				while ($message = mysqli_fetch_object($res, "Message", array($this->db)))
+				{
+
+				$list[] = $message;
+			
+				}
+		     
+		     return $list;
+
+		}
+
+
+	}
+
 
 }
 ?>

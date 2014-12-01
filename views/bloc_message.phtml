@@ -1,3 +1,11 @@
 <div>
+	<div>
+		<strong>Créé le : </strong><?=$Message->getCreation_date();?>
+		<strong>  par : </strong><?=$Message->getAuthor()->getName();?>	
+	</div>
+
 	<?=$Message->getText();?>
+
+	<h3><a href="index.php?page=bloc_category">Retour choix des catégories</a></h3>
+
 </div>
