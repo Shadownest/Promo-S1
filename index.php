@@ -21,4 +21,11 @@ else{
 	exit();
 }
 
+/*
+
+	IL MANQUE LA GESTION DES REQUETES AJAX !!!!!
+
+*/
+
+
 ?>
