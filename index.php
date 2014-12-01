@@ -7,20 +7,15 @@ require("autoload.php");
 
 $page="home";
 
-$tab=array("home","register","login","logout", "ucp_admin", "ucp_user", "delete_subject", "edit_subject", "404", "category", "subject", "header");
+$tab=array("home","register","login","logout", "ucp_admin", "ucp_user", "delete_subject", "edit_subject", "404", "category", "subject", "header", "feed");
 
 if(isset($_GET["page"])){
 	$page=$_GET["page"];
 }
 
 if(in_array($page,$tab,true)){
-	if(isset($_GET["ajax"]) && $_GET["ajax"]=="true")
-	{
-		if (isset($_GET["refresh"]) && $_GET["refresh"]=="true")
-			require("app/refresh_message.php");
-		else
-			require("app/content.php");
-	}
+	if(isset($_GET["ajax"]))
+		require("app/".$page.".php");
 	else
 		require("app/skel.php");
 }
