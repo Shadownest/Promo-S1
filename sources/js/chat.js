@@ -14,6 +14,17 @@ $('document').ready(function()
 		}
 	});
 
+	//Envoi du message à PHP
+	$('#click_chat').click(function(info) {
+		var content = $('#chat').val();
+
+		$.post('index.php?page=tchat&ajax=true', {"content":content}, function(data) {
+
+		});
+
+		$('#chat').val("");
+	});
+
 	//Réception des messages
 	setInterval(function(){
 		$.get('index.php?page=tchat&ajax=true&refresh=true', function(data){
