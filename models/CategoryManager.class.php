@@ -14,17 +14,16 @@ class CategoryManager{
 
 
 
-	/*public function displayCategoriesList(){
-	//génération d'une liste des categories
-
+	public function displayCategoriesList(){
+	//génération d'une liste des categories qui s'affiche dans le selecteur
 	$res=mysqli_query($this->db, "SELECT title from category");
-	if($res){
-	 	$category = mysqli_fetch_object($res, "Category");
-	 	return $category; 
+	if($res)
+		{
+	 	$list_category = mysqli_fetch_object($res, "Category");
+	 	return $list_category; 
 	 	}
-		return null;
 	}
-
+	/*
 	public function deleteCategory(){
 
 	//tranférer sujets de la catégorie à supprimer :
@@ -38,7 +37,7 @@ class CategoryManager{
 	}
 
 
-	public function createCategory(){
+	public function createCategory($title, $position){
 
 	//creation  d'une nouvelle categorie
 	mysqli_query($this->db, "INSERT INTO `forum`.`category`(title, position) VALUES ('".$title."', '".$position."')");
