@@ -151,3 +151,19 @@ button:hover {
 .error_page {
 	margin-left: 600px;
 }
+
+/* USER PAGE ********************/
+
+.user_profil span {
+	display: block;
+}
+
+.thumbnail_avatar {
+	width: 130px;
+	height: 150px;
+}
+
+.thumbnail_avatar img {
+	width: 100%;
+	height: 100%;
+}
