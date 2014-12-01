@@ -1,0 +1,1 @@
+SELECT `user`.`name`, `subject`.`title` FROM `message`LEFT JOIN user ON message.author_id=user.id LEFT JOIN subject ON message.subject_id=subject.id ORDER BY user.id DESC LIMIT 1

@@ -4,7 +4,7 @@
 
 
 
-$id=$homeCategory[$i]->getId();
+$id=$Subject->getId();
 $manager = new MessageManager($db);
 $homeMessage = $manager-> displayListMessage($id);
 
@@ -18,8 +18,10 @@ while($k<count($homeMessage))
 	$k++;
 }
 
-
-
+//$id=$Subject->getId();
+/*$id=18;
+$manager = new MessageManager($db);
+$id = $manager->getMessage($id);*/
 
 
 

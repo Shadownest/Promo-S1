@@ -25,11 +25,13 @@ class UserManager{
 				$result=mysqli_num_rows($verif);
 				if($result==0){
 					$request=mysqli_query($this->db,"INSERT INTO user (name, password, email) VALUES ('".$name."', '".$password."', '".$email."')");
-					$res=mysqli_query($this->db, "SELECT name, password, email FROM user WHERE name='".$name."'AND password='".$password."' AND email='".$email."'");
+					$res=mysqli_query($this->db, "SELECT id, name, password, email FROM user WHERE name='".$name."'AND password='".$password."' AND email='".$email."'");
 
 					if($res){
 						$user=mysqli_fetch_object($res, "User");
 						if($user){
+							$feed = new FeedManager($this->db);
+							$feed->createUser($user);
 							return $user;
 						}
 					}
