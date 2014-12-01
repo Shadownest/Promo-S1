@@ -1,1 +1,1 @@
-<div class="feed" data-id="<?=$dataFeed['id']?>">[<?=date('H\:i\:s', strtotime($dataFeed['date']))?>] <?=$dataFeed['author']?> > <?=$dataFeed['content']?></div>
+<div class="feed" data-id="<?=$dataFeed['id']?>">[<?=date('H\:i\:s', strtotime($dataFeed['date']))?>] <a href="index.php?page=user&id=<?=$dataFeed['id']?>"><?=$dataFeed['author']?></a> > <?=$dataFeed['content']?></div>

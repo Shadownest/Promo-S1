@@ -43,15 +43,15 @@ class FeedManager
 
 	public function createCategory(User $author, Category $category)
 	{
-		$this->addToFeed($author, '+<a href="index.php?page=category&id='.$category->getId().'">'+$this->shorten($category->getTitle(), 32)+'</a>.');
+		$this->addToFeed($author, '+<a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>.');
 	}
 	public function editCategory(User $author, Category $category)
 	{
-		$this->addToFeed($author, '~<a href="index.php?page=category&id='.$category->getId().'">'+$this->shorten($category->getTitle(), 32)+'</a>.');
+		$this->addToFeed($author, '~<a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>.');
 	}
 	public function deleteCategory(User $author, Category $category)
 	{
-		$this->addToFeed($author, '-<a href="index.php?page=category&id='.$category->getId().'">'+$this->shorten($category->getTitle(), 32)+'</a>.');
+		$this->addToFeed($author, '-<a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>.');
 	}
 
 	/*
@@ -60,19 +60,19 @@ class FeedManager
 
 	public function createSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > +<a href="index.php?page=subject&id='.$subject->getId().'">'+$this->shorten($subject->getTitle(), 32)+'</a>.');
+		$this->addToFeed($author, 'Category > +<a href="index.php?page=subject&id='.$subject->getId().'">'.$this->shorten($subject->getTitle(), 32).'</a>.');
 	}
 	public function editSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > ~<a href="index.php?page=subject&id='.$subject->getId().'">'+$this->shorten($subject->getTitle(), 32)+'</a>.');
+		$this->addToFeed($author, 'Category > ~<a href="index.php?page=subject&id='.$subject->getId().'">'.$this->shorten($subject->getTitle(), 32).'</a>.');
 	}
 	public function deleteSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > -'+$this->shorten($subject->getTitle(), 32)+'.');
+		$this->addToFeed($author, 'Category > -'.$this->shorten($subject->getTitle(), 32).'.');
 	}
 	public function lockSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > #'+$this->shorten($subject->getTitle(), 32)+'.');
+		$this->addToFeed($author, 'Category > #'.$this->shorten($subject->getTitle(), 32).'.');
 	}
 
 	/*
@@ -81,15 +81,15 @@ class FeedManager
 
 	public function createMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, 'Category > Subject > +<a href="index.php?page=message&id='.$message->getId().'">'+$this->shorten($message->getText(), 32)+'</a>.');
+		$this->addToFeed($author, 'Category > Subject > +<a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>.');
 	}
 	public function editMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, 'Category > Subject > ~<a href="index.php?page=message&id='.$message->getId().'">'+$this->shorten($message->getText(), 32)+'</a>.');
+		$this->addToFeed($author, 'Category > Subject > ~<a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>.');
 	}
 	public function deleteMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, 'Category > Subject > -'+$this->shorten($message->getText(), 32)+'.');
+		$this->addToFeed($author, 'Category > Subject > -'.$this->shorten($message->getText(), 32).'.');
 	}
 
 	/*
@@ -98,7 +98,7 @@ class FeedManager
 
 	public function createUser(User $author)
 	{
-		$this->addToFeed($author, 'Welcome <a href="index.php?page=user&id='.$author->getId().'">'+$this->shorten($author->getName(), 32)+'</a> !');
+		$this->addToFeed($author, 'Welcome <a href="index.php?page=user&id='.$author->getId().'">'.$this->shorten($author->getName(), 32).'</a> !');
 	}
 
 	/*
