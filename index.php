@@ -24,12 +24,4 @@ else{
 	header("Location: index.php?page=404");
 	exit();
 }
-
-/*
-
-	IL MANQUE LA GESTION DES REQUETES AJAX !!!!!
-
-*/
-
-
 ?>
