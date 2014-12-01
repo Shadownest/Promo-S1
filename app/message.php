@@ -4,7 +4,7 @@ if(isset($_GET['id']) && $_GET['id']!=""){
 
 	$id=$_GET['id'];
 	$manager = new MessageManager($db);
-	$homeMessage = $manager-> displayListMessage($id);
+	$homeMessage = $manager-> getListMessage($id);
 
 	$i=0;
 	while($i<count($homeMessage))
