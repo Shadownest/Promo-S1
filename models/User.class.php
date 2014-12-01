@@ -11,6 +11,7 @@ class User{
 	private $description;
 	private $admin;
 	private $moderator;
+	private $creation_date;
 	
 
 
@@ -104,6 +105,15 @@ class User{
 	public function setDescription($description){
 
 		$this->description = $description;
+	}
+
+	public function getCreationDate(){
+
+		return $this->creation_date;
+	}
+	public function setCreationDate($creation_date){
+
+		$this->creation_date = $creation_date;
 	}
 
 }
