@@ -19,7 +19,8 @@ class MessageManager{
 	public function getListMessage($id)
 	{
 
-		$requete = "SELECT `text`, author_id FROM `message` WHERE subject_id='".$id."'";
+		$id = intval($id);
+		$requete = "SELECT id, `text`, author_id, creation_date, update_date, subject_id FROM `message` WHERE subject_id='".$id."'";
 		
 		$res = mysqli_query($this->db, $requete);
 	
