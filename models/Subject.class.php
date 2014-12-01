@@ -13,11 +13,10 @@ class Subject{
 	private $creation_date;
 	private $category_id;
 	private $freeze;
-	private $db;
 	private $author;
 
-	public function __construct($db){
-		$this->db = $db;
+	public function __construct(){
+		
 	}
 
 	public function getId(){
