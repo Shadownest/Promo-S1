@@ -1,2 +1,2 @@
 <strong>@<?=$data["name"];?></strong> | <i><?=$data["date"];?></i>
-<p class="message"><?=$data["content"];?></p>
+<p class="message"><?=htmlentities($data["content"]);?></p>
