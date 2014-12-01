@@ -24,5 +24,4 @@ else{
 	header("Location: index.php?page=404");
 	exit();
 }
-
 ?>
