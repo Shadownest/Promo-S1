@@ -19,7 +19,7 @@ class MessageManager{
 	public function displayListMessage($id)
 	{
 
-		$requete = "SELECT `message`.`id`, `message`.`text`, `user`.`name`, `message`.`creation_date`, `message`.`update_date`, `subject`.`title` FROM `message` LEFT JOIN user ON message.author_id=user.id LEFT JOIN subject ON message.subject_id=subject.id";
+		$requete = "SELECT `message`.`id`, `message`.`text`, `user`.`name`, `message`.`creation_date`, `message`.`update_date`, `subject`.`title` FROM `message` LEFT JOIN user ON message.author_id=user.id LEFT JOIN subject ON message.subject_id=subject.id WHERE message.subject_id='".$id."'";
 		
 		$res = mysqli_query($this->db, $requete);
 	
@@ -36,8 +36,25 @@ class MessageManager{
 		     return $list;
 
 		}
-
 	}
+
+	public function getMessage($id)
+	{
+		 $res = mysqli_query($this->db, "SELECT `id`, `text`,`author_id`, `creation_date`, `update_date`, `subject_id` FROM `message` WHERE category.id='".$id."'");
+		
+		if($res)
+		{
+			$message = mysqli_fetch_object($res, "Message");
+			if($message)
+			
+				{
+					return $message;
+				}
+		}
+
+	return null;
+	}	
+
 
 
 }

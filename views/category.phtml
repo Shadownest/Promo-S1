@@ -1,7 +1,8 @@
 <div class="row">
-	<h1>Vous êtes la catégorie <?=$titleCategory->getTitle();?> <i class="fa fa-comment"></i></h1>
+	<h1>Vous êtes à la catégorie <?//=$titleCategory->getTitle();?> <i class="fa fa-comment"></i></h1>
 
 	<div class="col-md-12 category_title">
-		<a href="index.php?page=category&id=<?=$titleCategory->getId()?>"><i class="fa fa-comment-o"></i> <?=$titleCategory->getTitle();?></a>
+		<!--<a href="index.php?page=category&id=<?=$titleCategory->getId()?>"><i class="fa fa-comment-o"></i> <?//=$titleCategory->getTitle();?></a>-->
 	</div>
+	<div><?php require('app/bloc_subject.php'); ?></div>
 </div>
