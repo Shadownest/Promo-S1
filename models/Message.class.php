@@ -14,6 +14,7 @@ class Message{
 	private $subject_id;
 	private $db;
 	private $author;
+	private $subject;
 
 	public function __construct($db){
 	$this->db = $db;
@@ -68,7 +69,15 @@ class Message{
 		}
 		return $this->author;
 	}
-
+	public function getSubject()
+		{
+			if (!$this->subject)
+			{	
+				$manager = new SubjectManager($this->db);
+				$this->subject = $manager->getSubject($this->subject_id);
+			}
+			return $this->subject;
+		}
 
 }
 ?>
