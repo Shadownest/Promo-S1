@@ -75,12 +75,17 @@ class SubjectManager{
 
 	public function deleteSubject($id)
 	{
+		$subject = $this->getSubject($id);
 		$res = mysqli_query($this->db,"DELETE FROM `subject` WHERE id='".$id."'");
 		if($res)
 		{
 			$deletesubject = mysqli_fetch_object($res, "Subject", array($this->db));
 			if($deletesubject)
 			{
+				$feed = new FeedManager($this->db);
+				$user = new UserManager($this->db);
+				$user = $user->getUser(16);
+				$feed->deleteSubject($user, $subject);
 				return $deletesubject;
 			}
 		}
@@ -91,6 +96,11 @@ class SubjectManager{
 		$res = mysqli_query($this->db,"INSERT INTO  `forum`.`subject` (`title`, `author_id`, `category_id`) VALUES ('".$title."', '".$author_id."', '".$category_id."')");
 		if($res)
 		{
+			$feed = new FeedManager($this->db);
+			$user = new UserManager($this->db);
+			$user = $user->getUser($author_id);
+			$subject = $this->getSubject(mysqli_insert_id($this->db));
+			$feed->createSubject($user, $subject);
 			return $res;
 		}
 		return null;

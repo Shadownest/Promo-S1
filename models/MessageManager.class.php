@@ -67,7 +67,7 @@ class MessageManager{
 		
 		if($res)
 		{
-			$message = mysqli_fetch_object($res, "Message");
+			$message = mysqli_fetch_object($res, "Message", array($this->db));
 			if($message)
 			
 				{
@@ -83,6 +83,11 @@ class MessageManager{
 		$res=mysqli_query($this->db, "INSERT INTO `forum`.`message` (`text`, `author_id`, `subject_id`) VALUES ('".$text."','".$author_id."','".$subject_id."')");
 		
 		if($res){
+			$feed = new FeedManager($this->db);
+			$user = new UserManager($this->db);
+			$user = $user->getUser($author_id);
+			$message = $this->getMessage(mysqli_insert_id($this->db));
+			$feed->createMessage($user, $message);
 			return "Le message à été ajouté";
 		}
 		else{

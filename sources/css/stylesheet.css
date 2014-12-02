@@ -203,3 +203,24 @@ button:hover {
 	background: #eee;
 	border-bottom: 1px dashed #777;
 }
+
+/* CREATE SUBJECT ***************************/
+
+.create_subject {
+	background: #eee;
+	padding: 5px;
+}
+
+.return_home {
+	color: #c73434;
+	font-size: 0.6em;
+}
+
+.return_home:hover {
+	text-decoration: underline;
+	color: #c73434;
+}
+
+.show_create_subject {
+	margin: 15px 0;
+}
