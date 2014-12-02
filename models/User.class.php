@@ -36,7 +36,10 @@ class User{
 	}
 	public function setName($name){
 
-		$this->name = $name;
+		if (strlen($name) < 4)
+			return "trop court !";
+		else
+			$this->name = $name;
 	}
 
 	public function getPassword(){
@@ -51,7 +54,7 @@ class User{
 		if($password)
 		{
 			$password=mysqli_fetch_assoc($password);
-			if($user->verifPassword($password))
+			if($this->verifPassword($password))
 			{
 				if($newPassword==$newPassword2)
 				{
