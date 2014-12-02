@@ -62,7 +62,7 @@ class UserManager{
 		$res=mysqli_query($this->db, "SELECT id, name, password, level, avatar, description FROM user WHERE name='".$name."'");
 
 		if($res){
-			$user=mysqli_fetch_object($res,"User");
+			$user=mysqli_fetch_object($res,"User", array($this->db));
 			if($user){
 				if($user->verifPassword($password)){
 					return $user;
@@ -81,7 +81,7 @@ class UserManager{
 	public function getUser($id){
 		$res=mysqli_query($this->db, "SELECT id, name, password, email, level, avatar, description, creation_date FROM user WHERE id='".$id."'");
 		if($res){
-			$user=mysqli_fetch_object($res, "User");
+			$user=mysqli_fetch_object($res, "User", array($this->db));
 			if($user){
 				return $user;
 			}
@@ -97,20 +97,11 @@ class UserManager{
 		return null;
 	}
 
-	public function changePassword(User $user, $password)
-	{
-		$password = password_hash($password, PASSWORD_BCRYPT, ['cost'=>14]);
-		$res = mysqli_query($this->db, "UPDATE `forum`.`user` SET password='".$password."' WHERE id='".$user->getId()."'");
-		if ($res)
-			return $this->getUser($user->getId());
-		return null;
-	}
-
 	public function findUserByName($like)
 	{
 		$res = mysqli_query($this->db, "SELECT id, name, password, email, level, avatar, description, creation_date FROM user WHERE name LIKE %'".$like."'%");
 		$list = array();
-		while ($user = mysqli_fetch_object($res, "User"))
+		while ($user = mysqli_fetch_object($res, "User", array($this->db)))
 		{
 			$list[] = $user;
 		}
