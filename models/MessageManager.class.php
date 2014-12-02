@@ -20,16 +20,16 @@ class MessageManager{
 	{
 
 		$id = intval($id);
-		$requete = "SELECT id, `text`, author_id, creation_date, update_date, subject_id FROM `message` WHERE subject_id='".$id."'";
+		$requete = "SELECT id, `text`, author_id, creation_date, update_date, subject_id FROM `message` WHERE subject_id='".$id."' ORDER BY creation_date DESC" ;
 		
 		$res = mysqli_query($this->db, $requete);
-	
+		
 		if ($res)
 
 		{		$list = array();	
 				while ($message = mysqli_fetch_object($res, "Message", array($this->db)))
 				{
-
+					
 				$list[] = $message;
 			
 				}
@@ -83,10 +83,10 @@ class MessageManager{
 		$res=mysqli_query($this->db, "INSERT INTO `forum`.`message` (`text`, `author_id`, `subject_id`) VALUES ('".$text."','".$author_id."','".$subject_id."')");
 		
 		if($res){
-			return $res;
+			return "Le message à été ajouté";
 		}
 		else{
-			return null;
+			return "erreur lors de l'envoi du message";
 		}
 	}
 

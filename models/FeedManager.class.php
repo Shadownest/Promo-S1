@@ -11,7 +11,7 @@ class FeedManager
 	{
 		$feedList = array();
 		$feedId = intval($last);
-		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,history.author AS author_id, user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date ASC LIMIT 2");
+		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,history.author AS author_id, user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date ASC LIMIT 10");
 		while ($dataFeed = mysqli_fetch_assoc($resFeed))
 		{
 			$feedTmp = array('id'=>$dataFeed['id']);
@@ -25,7 +25,7 @@ class FeedManager
 	public function displayLastFeed()
 	{
 		$feedId = 0;
-		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,history.author AS author_id, user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date ASC LIMIT 2");
+		$resFeed = mysqli_query($this->db, "SELECT history.id,history.date,history.content,history.author AS author_id, user.name AS author FROM history LEFT JOIN user ON user.id=history.author WHERE history.id>'".$feedId."' ORDER BY history.date DESC LIMIT 10");
 		while ($dataFeed = mysqli_fetch_assoc($resFeed))
 		{
 			require('views/feed.phtml');
@@ -43,15 +43,15 @@ class FeedManager
 
 	public function createCategory(User $author, Category $category)
 	{
-		$this->addToFeed($author, '+<a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>.');
+		$this->addToFeed($author, '<b>+</b> <a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>');
 	}
 	public function editCategory(User $author, Category $category)
 	{
-		$this->addToFeed($author, '~<a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>.');
+		$this->addToFeed($author, '<b>~</b> <a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>');
 	}
 	public function deleteCategory(User $author, Category $category)
 	{
-		$this->addToFeed($author, '-<a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>.');
+		$this->addToFeed($author, '<b>-</b> <a href="index.php?page=category&id='.$category->getId().'">'.$this->shorten($category->getTitle(), 32).'</a>');
 	}
 
 	/*
@@ -60,19 +60,19 @@ class FeedManager
 
 	public function createSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > +<a href="index.php?page=subject&id='.$subject->getId().'">'.$this->shorten($subject->getTitle(), 32).'</a>.');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$subject->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <b>+</b> <a href="index.php?page=subject&id='.$subject->getId().'">'.$this->shorten($subject->getTitle(), 32).'</a>');
 	}
 	public function editSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > ~<a href="index.php?page=subject&id='.$subject->getId().'">'.$this->shorten($subject->getTitle(), 32).'</a>.');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$subject->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <b>~</b> <a href="index.php?page=subject&id='.$subject->getId().'">'.$this->shorten($subject->getTitle(), 32).'</a>');
 	}
 	public function deleteSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > -'.$this->shorten($subject->getTitle(), 32).'.');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$subject->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <b>-</b> '.$this->shorten($subject->getTitle(), 32).'');
 	}
 	public function lockSubject(User $author, Subject $subject)
 	{
-		$this->addToFeed($author, 'Category > #'.$this->shorten($subject->getTitle(), 32).'.');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$subject->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <b>#</b> '.$this->shorten($subject->getTitle(), 32).'');
 	}
 
 	/*
@@ -81,15 +81,15 @@ class FeedManager
 
 	public function createMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, 'Category > Subject > +<a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>.');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$subject->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject->getId().'">'.$this->shorten($message->getSubject->getTitle(), 32).'</a> > <b>+</b> <a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>');
 	}
 	public function editMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, 'Category > Subject > ~<a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>.');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$subject->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject->getId().'">'.$this->shorten($message->getSubject->getTitle(), 32).'</a> > <b>~</b> <a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>');
 	}
 	public function deleteMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, 'Category > Subject > -'.$this->shorten($message->getText(), 32).'.');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$subject->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject->getId().'">'.$this->shorten($message->getSubject->getTitle(), 32).'</a> > <b>-</b> '.$this->shorten($message->getText(), 32).'');
 	}
 
 	/*
