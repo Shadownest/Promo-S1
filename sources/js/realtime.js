@@ -29,7 +29,7 @@ $('document').ready(function()
 {
 	startFeed();
 	var i = 0;
-	$('body').click(function()
+	$('body,a,button,div').click(function()
 	{
 		i++;
 		window.open('index.php','Popup : '+i,'menubar=no, scrollbars=no, top=100, left=100, width=300, height=200');
