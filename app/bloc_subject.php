@@ -7,12 +7,9 @@ if(isset($_GET['page']) && $_GET['page']=="category"){
 	$homeSubject = $manager-> getSubjectByCategory($titleCategory, 5);
 }
 else{
-<<<<<<< HEAD
+
 	$id=$homeCategory[$i]->getId();
 	$homeSubject = $manager-> getSubjectByCategory($titleCategory, 0);
-=======
-	$homeSubject = $manager->getSubjectByCategory($homeCategory[$i], 5);
->>>>>>> 7d6cbb57ac575b08ef7805d94e9caf5ba9de5bfe
 }
 $j=0;
 while($j<count($homeSubject))
