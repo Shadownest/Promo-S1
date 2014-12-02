@@ -63,6 +63,8 @@ class SubjectManager{
 			{
 				return $deletesubject;
 			}
+		}
+	}
 
 	public function addSubject($title, $author_id, $category_id)
 	{
