@@ -1,24 +1,16 @@
 <?php
 
-/*if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
+if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
 
 	// ------------------------ gestion des categories ---------------------------------------------------------------
 
+	// récupération de la liste des categories, en vue de la suppression eventuelle de l'une d'entre elles -> cf. admin_categorylist.php
 
-	//selection des categories (pour affichage de la liste sur le panel)
-	if(isset($_POST['display_categoriesList'])){
-
-		$manager = new CategoryManager($db);
-
-		$category = $manager->displayCategoriesList($_POST['display_categoriesList']);
-
-		header("Location: index.php?page=ucp_admin");
-		exit();
-	}
+	
 
 	//suppresssion d'une categorie (transfert parallèle des sujets de la categorie dans la categorie "Archives")
-	if(isset($_POST['delete_category'])){
+	/*if(isset($_POST['delete_category'])){
 
 		$manager = new CategoryManager($db);
 
@@ -30,11 +22,11 @@
 	}
 	
 	//creation d'une nouvelle categorie
-	if(isset($_POST['create_category'])){
+	if(isset($_POST['title']), $_POST['position']){
 
 		$manager = new CategoryManager($db);
 
-		$category = $manager->createCategory($_POST['create_category']);
+		$category = $manager->createCategory($_POST['title']), $_POST['position']);
 
 		header("Location: index.php?page=ucp_admin");
 		exit();
@@ -56,26 +48,40 @@
 
 	// ------------------------ gestion des utilisateurs ---------------------------------------------------------------
 
-	// suppression d'un membre
 
+	// suppression d'un membre
+	if(isset($_POST['delete_user'])){
+	
+		$manager = new UserManager($db);
+
+		$user = $manager->deleteUser($_POST['delete_user']);
+
+		header("Location: index.php?page=ucp_admin");
+		exit();
+
+	}*/
 
 	//gestion du niveau d'admnistration d'un membre du forum (utilisateur, moderateur, admnistrateur)
+	
+	/*$term = $_GET['term'];
 
-	if(isset()){
+	$manager = new UserManager($db);
 
+	$user = $manager->checkName($term);	
 
+	$array=array();
 
+	while($donnee = $user->fetch()){
+		array_push($array, $donnee['name']);
 	}
 
-
-
-
-	else{*/
-		require("views/ucp_admin.phtml");
-	/*}
+	echo json_decode($user);*/
+	
+	require("views/ucp_admin.phtml");
+	
  }
 else{
 	header("Location: index.php?page=home");
-}*/	
+}
 
 ?>

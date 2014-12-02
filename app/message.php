@@ -10,15 +10,11 @@ if(isset($_GET['id']) && $_GET['id']!=""){
 	while($i<count($homeMessage))
 	{
 		$Message=$homeMessage[$i];
-		//require('views/bloc_subject.phtml');
 		require('views/message.phtml');
 		$i++;
 	}
 
-	//$id=$Subject->getId();
-	/*$id=18;
-	$manager = new MessageManager($db);
-	$id = $manager->getMessage($id);*/
+	/*$id = $manager->getMessage($id);*/
 }
 
 

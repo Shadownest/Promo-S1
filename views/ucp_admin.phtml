@@ -7,13 +7,12 @@
 				<form action="index.php?page=ucp_admin" method="post">
 					<label for="category">Catégories</label>
 					<select class="form-control" name="category[]" id="category" multiple>
-						<option value="exemple">exemple</option>
-						<option value="exemple2">exemple2</option>
+						<?php require("app/admin_categorylist.php");?>
 					</select>
 					<button class="button_alert" type="submit"><i class="fa fa-remove"></i>  Supprimer</button>
 				</form>
 				<div class="alert alert-danger">
-					<i class="fa fa-warning"></i> Avertissement ! Si une catégorie est supprimée, ses sujets seront transférés dans la catégorie "Archives".
+					<i class="fa fa-warning"></i> Avertissement ! Si une catégorie est supprimée, ses sujets seront transférés dans la catégorie "Archives". <br />(!) Bloquer avec Bootstrap la categorie "Archives".
 				</div>
 			</fieldset>
 		</div>
@@ -51,17 +50,11 @@
 				<span class="alert-danger"><!-- ----------------------------- INSERER VARIABLE ERREUR --></span>
 				<form action="index.php?page=ucp_admin" method="post">
 					<div class="form-group">
-						<label for="userName">Nom de l'utilisateur à modifier</label>
-						<input type="text" name="userName" id="userName" class="form-control">
+						<label for="searchName">Nom de l'utilisateur à modifier</label>
+						<input type="text" name="searchName" id="searchName" class="form-control"/>
+						<button class="button_success" type="submit"><i class="fa fa-check"></i> Valider</button>
+						<hr>
 					</div>
-					<hr>
-					<h4>Modifier les permissions :</h4>
-					<div class="form-group">
-						<input type="radio" name="choixLevel" id="choixAdmin" /><label for="choixOui">Admin</label><br>
-						<input type="radio" name="choixLevel" id="choixModo" /><label for="choixModo">Modérateur</label><br> 
-						<input type="radio" name="choixLevel" id="choixUser" /><label for="choixUser">Utilisateur</label> 
-					</div>
-					<button class="button_success" type="submit"><i class="fa fa-check"></i> Valider</button>
 				</form>
 			</fieldset>
 		</div>
