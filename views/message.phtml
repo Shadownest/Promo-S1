@@ -10,8 +10,12 @@
 				<div class="col-md-12">
 					<strong><?=$Message->getAuthor()->getName();?></strong> • <i><?=$Message->getCreation_date();?>	</i>
 						<span class="spacer_toolbar"></span>
-						<?=$addSupButton;?>
-						<?=$addEditButton;?>
+						<form action="" method="post">
+							<?=$addSupButton;?>
+						</form>
+						<form action="" method="post">
+							<?=$addEditButton;?>
+						</form>
 				</div>
 			</div>
 			<div class="spacer_message"></div>

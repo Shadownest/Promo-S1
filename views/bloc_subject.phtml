@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-5">
-		<a href="index.php?page=subject&id=<?=$Subject->getId();?>"><strong><?=$Subject->getTitle();?></strong></a>
+		<form action="" method="post" class="subject_form"><?=$addSupSubject;?></form><a href="index.php?page=subject&id=<?=$Subject->getId();?>"><strong><?=$Subject->getTitle();?></strong></a>
 	</div>
 	<div class="col-md-2">
 		<i><?=$Subject->getAuthor()->getName();?></i>
