@@ -7,6 +7,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 	$id="";
 	$modif_category="";
 	$manager = new CategoryManager($db);
+
 	// ------------------------ gestion des categories ---------------------------------------------------------------
 
 	// récupération de la liste des categories, en vue de la suppression eventuelle de l'une d'entre elles -> cf. admin_categorylist.php
@@ -15,7 +16,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 	//suppresssion d'une categorie (transfert parallèle des sujets de la categorie selectionnee dans la categorie "Archives")
 	if(isset($_POST['category'])){
 
-		$category = $manager->deleteCategory($_POST['category']);
+		$category = $manager->deleteCategory($manager->getCategory($_POST['category']));
 
 	}
 
@@ -30,8 +31,12 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 	}
 
 	//modification d'une categorie
-	if(isset($_POST['name_category'], $_POST['pos_category'])){
-		$save_category = $manager->saveCategory($_POST['id'], $_POST['name_category'], $_POST['pos_category']);
+	if(isset($_POST['name_category'], $_POST['pos_category']))
+	{
+		$category = $manager->getCategory($_POST['id']);
+		$category->setTitle($_POST['name_category']);
+		$category->setPosition($_POST['pos_category']);
+		$save_category = $manager->saveCategory($category);
 	}
 
 	/*
@@ -65,7 +70,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
 	//gestion du niveau d'admnistration d'un membre du forum (utilisateur, moderateur, admnistrateur)
 	
-	$term = $_GET['term'];
+	/*$term = $_GET['term'];
 	print_r($term);
 
 	$manager = new UserManager($db);
@@ -79,7 +84,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 	}
 
 	echo json_decode($user);
-
+	*/
 
 	
 	require("views/ucp_admin.phtml");
