@@ -51,7 +51,7 @@ class User{
 		if($password)
 		{
 			$password=mysqli_fetch_assoc($password);
-			if($user->verifPassword($password))
+			if($this->verifPassword($password))
 			{
 				if($newPassword==$newPassword2)
 				{
