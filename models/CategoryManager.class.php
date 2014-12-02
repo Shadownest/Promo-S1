@@ -14,6 +14,8 @@ class CategoryManager{
 
 
 
+	
+
 	/*
 
 	public function deleteCategory(){
@@ -29,7 +31,7 @@ class CategoryManager{
 	}
 
 
-	public function createCategory(){
+	public function createCategory($title, $position){
 
 	//creation  d'une nouvelle categorie
 	mysqli_query($this->db, "INSERT INTO `forum`.`category`(title, position) VALUES ('".$title."', '".$position."')");

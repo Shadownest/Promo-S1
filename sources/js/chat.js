@@ -1,5 +1,8 @@
 $('document').ready(function()
 {
+
+	//Envoi du message à PHP
+
 	//Envoi du message à PHP en appuyant sur la touche entrée
 	$('#chat').keypress(function(info) {
 		if(info.keyCode == 13)
@@ -13,6 +16,8 @@ $('document').ready(function()
 			$('#chat').val("");
 		}
 	});
+
+	//Envoi du message à PHP
 
 	//Envoi du message à PHP au click du bouton
 	$('#click_chat').click(function(info) {
@@ -31,6 +36,7 @@ $('document').ready(function()
 			$("#aff_chat").html(data);
 		});
 	},5000);
+
 
 
 	//suppresion de messages
