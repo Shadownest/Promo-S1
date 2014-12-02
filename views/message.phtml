@@ -10,7 +10,8 @@
 				<div class="col-md-12">
 					<strong><?=$Message->getAuthor()->getName();?></strong> • <i><?=$Message->getCreation_date();?>	</i>
 						<span class="spacer_toolbar"></span>
-					<button class="button_message"><i class="fa fa-remove"></i> Supprimer</button><button class="button_message"><i class="fa fa-pencil"></i> Editer</button>
+						<?=$addSupButton;?>
+						<?=$addEditButton;?>
 				</div>
 			</div>
 			<div class="spacer_message"></div>
