@@ -4,9 +4,10 @@ class Category{
 	private $id;
 	private $title;
 	private $position;
+	private $db;
 
-	public function __construct(){
-		
+	public function __construct($db){
+		$this->db = $db;
 	}
 
 	public function getId(){
