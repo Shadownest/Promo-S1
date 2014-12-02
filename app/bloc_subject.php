@@ -4,12 +4,12 @@ $manager = new SubjectManager($db);
 
 if(isset($_GET['page']) && $_GET['page']=="category"){
 	$id=$titleCategory->getId();
-	$homeSubject = $manager-> getSubjectByCategory($titleCategory, 5);
+	$homeSubject = $manager-> getSubjectByCategory($titleCategory, 0);
 }
 else{
 
 	$id=$homeCategory[$i]->getId();
-	$homeSubject = $manager-> getSubjectByCategory($titleCategory, 0);
+	$homeSubject = $manager-> getSubjectByCategory($titleCategory, 5);
 }
 $j=0;
 while($j<count($homeSubject))
