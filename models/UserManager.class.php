@@ -219,7 +219,7 @@ class UserManager{
 
 	//mise à jour du compte utilisateur : moderation ou non
 
-
+	
 	public function checkName($term){
 
 	$res=mysqli_query($this->db, "SELECT name FROM user WHERE name LIKE %'".$term."'%");
