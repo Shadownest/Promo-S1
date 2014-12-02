@@ -27,7 +27,7 @@ class Message{
 		$this->id=$id;
 	}
 	public function getText(){
-		return $this->text;
+		return nl2br($this->text);
 	}
 	public function setText($text){
 		$this->text=$text;
