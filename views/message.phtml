@@ -1,13 +1,24 @@
-<div>
-	<div>
-		<strong>Créé le : </strong><?=$Message->getCreation_date();?>
-		<strong>  par : </strong><?=$Message->getAuthor()->getName();?>	
+<div class="row message_subject">
+	<div class="col-md-12">
+		<div class="col-md-1">
+			<div class="thumbnail_avatar">
+				<img src="<?=$avatar?>" alt="">
+			</div>
+		</div>
+		<div class="col-md-10 message_content">
+			<div class="row">
+				<div class="col-md-12">
+					<strong><?=$Message->getAuthor()->getName();?></strong> • <i><?=$Message->getCreation_date();?>	</i>
+						<span class="spacer_toolbar"></span>
+					<button class="button_message"><i class="fa fa-remove"></i> Supprimer</button><button class="button_message"><i class="fa fa-pencil"></i> Editer</button>
+				</div>
+			</div>
+			<div class="spacer_message"></div>
+			<div class="row">
+				<div class="col-md-12">
+					<?=$Message->getText();?>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="thumbnail_avatar">
-		<img src="<?=$avatar?>" alt="">
-	</div>
-	<p><?=$Message->getText();?></p>
-</div>
-<div>
-	<button>Supprimer</button>
 </div>

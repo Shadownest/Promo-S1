@@ -8,13 +8,18 @@
 
 <div><?php require("app/message.php"); ?></div>
 
-<form method="POST" action="">
-	<div class="form-group">
-		<label for="message">Répondre au sujet: </label>
-		<textarea name="message" id="message" placeholder="Entrez votre message" cols="90" rows="4"></textarea>
-	</div>
-	
-	<button>Envoyer</button>
-</form>
+<div class="div_create"><button class="create_new_message">Répondre</button>
 
-<h3><a href="index.php?page=home">Retour </a></h3>
+	<div class="new_message">
+		<form method="POST" action="">
+			<div class="form-group">
+				<button class="pull-left hide_bloc">Cacher</button>
+				<label for="message">Répondre au sujet: </label>
+				<textarea class="form-control" rows="3" name="message" id="message"></textarea>
+			</div>
+			
+			<button type="submit">Envoyer</button>
+		</form>
+	</div>
+</div>
+<h3><a href="index.php?page=home" class="return_home">◄ Retour </a></h3>
