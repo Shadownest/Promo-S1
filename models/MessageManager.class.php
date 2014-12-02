@@ -83,10 +83,10 @@ class MessageManager{
 		$res=mysqli_query($this->db, "INSERT INTO `forum`.`message` (`text`, `author_id`, `subject_id`) VALUES ('".$text."','".$author_id."','".$subject_id."')");
 		
 		if($res){
-			return $res;
+			return "Le message à été ajouté";
 		}
 		else{
-			return null;
+			return "erreur lors de l'envoi du message";
 		}
 	}
 
