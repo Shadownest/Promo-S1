@@ -31,7 +31,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
 	//modification d'une categorie
 	if(isset($_POST['name_category'], $_POST['pos_category'])){
-		$modif_category = $manager->modifyCategory($_POST['id'], $_POST['name_category'], $_POST['pos_category']);
+		$save_category = $manager->saveCategory($_POST['id'], $_POST['name_category'], $_POST['pos_category']);
 	}
 
 	/*
@@ -65,11 +65,12 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
 	//gestion du niveau d'admnistration d'un membre du forum (utilisateur, moderateur, admnistrateur)
 	
-	/*$term = $_GET['term'];
+	$term = $_GET['term'];
+	print_r($term);
 
 	$manager = new UserManager($db);
 
-	$user = $manager->checkName($term);	
+	$user = $manager->findUserByName($term);	
 
 	$array=array();
 
@@ -77,7 +78,9 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 		array_push($array, $donnee['name']);
 	}
 
-	echo json_decode($user);*/
+	echo json_decode($user);
+
+
 	
 	require("views/ucp_admin.phtml");
 	
