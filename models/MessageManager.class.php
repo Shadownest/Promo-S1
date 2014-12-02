@@ -20,7 +20,7 @@ class MessageManager{
 	{
 
 		$id = intval($id);
-		$requete = "SELECT id, `text`, author_id, creation_date, update_date, subject_id FROM `message` WHERE subject_id='".$id."' ORDER BY creation_date DESC" ;
+		$requete = "SELECT id, `text`, author_id, creation_date, update_date, subject_id FROM `message` WHERE subject_id='".$id."' ORDER BY creation_date " ;
 		
 		$res = mysqli_query($this->db, $requete);
 		
