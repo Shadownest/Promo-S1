@@ -18,4 +18,7 @@ $('document').ready(function()
 	$("hide_bloc").click(function(){
 		$(".new_message").hide();
 	});
+
+	// ajout class disable au dernier élement du select
+	$("#category option").last().attr("disabled", "disabled");
 });
