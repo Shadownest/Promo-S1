@@ -34,7 +34,7 @@ $('document').ready(function()
 	setInterval(function(){
 		$.get('index.php?page=tchat&ajax=true&refresh=true', function(data){
 			$("#aff_chat").html(data);
-
+			$( "#aff_chat" ).scrollTop(250);
 			//suppresion de message
 			$('.click_sup').click(function() {
 				$.post('index.php?page=tchat&ajax=true', {"delete":"true", "id":$(this).data('id')}, function(data) {

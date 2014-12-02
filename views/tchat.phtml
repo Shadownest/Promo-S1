@@ -7,6 +7,14 @@
 	<div class="row">
 		<div class="col-md-12 subject">
 			<div class="row">
+				<div class="col-md-12">
+					<div class="refresh_message">
+						<?php require("app/feed.php"); ?>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
 				<span class="alert-danger"><?=$error;?></span>
 				<div id="aff_chat">
 					<?php require("app/bloc_tchat.php"); ?>

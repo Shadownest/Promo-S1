@@ -15,12 +15,14 @@ hr {
 }
 
 .refresh_message {
-	background: rgba(255,255,255,0.5);
+	background: #ddd;
 	border-radius: 5px;
 	padding: 8px; 
-	height: 50px;
+	height: 70px;
 	overflow: auto;
+	margin-top: 10px;
 }
+
 
 /* NAV ****************************/
 
