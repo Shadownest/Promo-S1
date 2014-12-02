@@ -25,8 +25,9 @@ class UserManager{
 				$result=mysqli_num_rows($verif);
 				if($result==0){
 					$request=mysqli_query($this->db,"INSERT INTO user (name, password, email) VALUES ('".$name."', '".$password."', '".$email."')");
+					/*
+					----AVANT----
 					$res=mysqli_query($this->db, "SELECT id, name, password, email FROM user WHERE name='".$name."'AND password='".$password."' AND email='".$email."'");
-
 					if($res){
 						$user=mysqli_fetch_object($res, "User");
 						if($user){
@@ -35,7 +36,15 @@ class UserManager{
 							return $user;
 						}
 					}
-					exit();
+					----APRES----
+					*/
+					$user = $this->getUser(mysqli_insert_id($this->db));
+					if($user){
+						(new FeedManager($this->db))->createUser($user);
+						return $user;
+					}
+					else
+						return "Erreur interne";
 				}
 				else{
 					return "Le login est déjà pris";
@@ -80,6 +89,41 @@ class UserManager{
 
 	}
 
+	public function saveUser(User $user)
+	{
+		$res = mysqli_query($this->db, "UPDATE user SET avatar='".$user->getAvatar()."', name='".$user->getName()."', email='".$user->getEmail()."', description='".$user->getDescription()."' WHERE id='".$user->getId()."'");
+		if ($res)
+			return $this->getUser($user->getId());
+		return null;
+	}
+
+	public function changePassword(User $user, $password)
+	{
+		$password = password_hash($password, PASSWORD_BCRYPT, ['cost'=>14]);
+		$res = mysqli_query($this->db, "UPDATE `forum`.`user` SET password='".$password."' WHERE id='".$user->getId()."'");
+		if ($res)
+			return $this->getUser($user->getId());
+		return null;
+	}
+
+	public function findUserByName($like)
+	{
+		$res = mysqli_query($this->db, "SELECT id, name, password, email, level, avatar, description, creation_date FROM user WHERE name LIKE %'".$like."'%");
+		$list = array();
+		while ($user = mysqli_fetch_object($res, "User"))
+		{
+			$list[] = $user;
+		}
+		return $list;
+	}
+
+	public function deleteUser(User $user)
+	{
+		$res = mysqli_query($this->db, "DELETE FROM `user` WHERE id='".$user->getId()."'");
+		return $res;
+	}
+
+	/*
 	public function changeAvatar($avatar,$name){
 
 		if(filter_var($avatar, FILTER_VALIDATE_URL)){
@@ -194,5 +238,6 @@ class UserManager{
 	exit();
 
 	}
+	*/
 }
 ?>
