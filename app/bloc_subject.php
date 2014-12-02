@@ -17,7 +17,7 @@ else{
 $j=0;
 while($j<count($homeSubject))
 {
-	if ($_SESSION["admin"] == true)
+	if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true)
 		$addSupSubject = "<button class='sup_subject' type='submit'><i class='fa fa-remove'></i></button>";
 	else
 		$addSupSubject = "";

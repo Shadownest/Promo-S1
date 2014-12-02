@@ -8,11 +8,11 @@ if(isset($_GET['id']) && $_GET['id']!=""){
 	$i=0;
 	while($i<count($homeMessage))
 	{
-		if ($_SESSION["admin"] == true)
+		if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true)
 		{
 			$addSupButton = "<button class='button_message' name='delete' type='submit'><i class='fa fa-remove'></i> Supprimer</button>";
 			$addEditButton = "<button class='button_message' name='edit' type='submit'><i class='fa fa-pencil'></i> Editer</button>";
-		} else if ($_SESSION["moderator"] == true) {
+		} else if (isset($_SESSION["moderator"]) && $_SESSION["moderator"] == true) {
 			$addSupButton = "";
 			$addEditButton = "<button class='button_message' name='edit' type='submit'><i class='fa fa-pencil'></i> Editer</button>";
 		} else {
