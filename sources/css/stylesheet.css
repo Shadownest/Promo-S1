@@ -184,7 +184,7 @@ button:hover {
 	margin-bottom: 10px;
 }
 
-#click_sup {
+.click_sup {
 	border: none;
 	padding: 0;
 	margin-right: 5px;
@@ -194,6 +194,11 @@ button:hover {
 	transition: all 0.1s ease-in;
 }
 
-#click_sup:hover {
+.click_sup:hover {
 	opacity: 0.7;
+}
+
+.chat_message {
+	background: #eee;
+	border-bottom: 1px dashed #777;
 }

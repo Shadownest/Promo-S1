@@ -7,13 +7,12 @@ if ($request)
 	while($data = mysqli_fetch_assoc($request))
 	{
 		if ($_SESSION["admin"] == true)
-			$button_sup = "<button id='click_sup'><i class='fa fa-remove'></i></button>";
+			$button_sup = "<button class='click_sup' data-id=".$data['message_id']."><i class='fa fa-remove'></i></button>";
 		else 
 			$button_sup = "";
 
 		require("views/bloc_tchat.phtml");
-	}
-	
+	}	
 } 
 else $error = "Erreur interne au serveur";
 ?>

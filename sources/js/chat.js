@@ -29,14 +29,14 @@ $('document').ready(function()
 	setInterval(function(){
 		$.get('index.php?page=tchat&ajax=true&refresh=true', function(data){
 			$("#aff_chat").html(data);
-		});
-	},5000);
 
+			//suppresion de message
+			$('.click_sup').click(function() {
+				$.post('index.php?page=tchat&ajax=true', {"delete":"true", "id":$(this).data('id')}, function(data) {
 
-	//suppresion de messages
-	$("#click_sup").click(function() {
-		$.get('index.php?page=tchat&ajax=true&delete=true', function(data) {
-			
+				});
+			});
 		});
-	});
+	},2000);
+
 });
