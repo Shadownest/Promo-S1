@@ -183,3 +183,17 @@ button:hover {
 .input_chat {
 	margin-bottom: 10px;
 }
+
+#click_sup {
+	border: none;
+	padding: 0;
+	margin-right: 5px;
+	background: none;
+	border-radius: 0;
+	color: #c73434;
+	transition: all 0.1s ease-in;
+}
+
+#click_sup:hover {
+	opacity: 0.7;
+}
