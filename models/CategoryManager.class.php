@@ -14,16 +14,7 @@ class CategoryManager{
 
 
 
-	/*public function displayCategoriesList(){
-	//génération d'une liste des categories
-
-	$res=mysqli_query($this->db, "SELECT title from category");
-	if($res){
-	 	$category = mysqli_fetch_object($res, "Category");
-	 	return $category; 
-	 	}
-		return null;
-	}
+	/*
 
 	public function deleteCategory(){
 
@@ -48,7 +39,7 @@ class CategoryManager{
 
 	//homepage
 
-	public function displayListCategory()
+	public function getListCategory()
 
 	{	$requete = "SELECT `id`,`title` FROM `category` ORDER BY `position`";
 		

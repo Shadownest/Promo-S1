@@ -53,22 +53,16 @@ class SubjectManager{
 
 	}	
 
-	public function deleteSubject($id)
+	public function addSubject($title, $author_id, $category_id)
 	{
-		$res = mysqli_query($this->db,"DELETE FROM `subject` WHERE id='".$id."'");
+		$res = mysqli_query($this->db,"INSERT INTO  `forum`.`subject` (`title`, `author_id`, `category_id`) VALUES ('".$title."', '".$author_id."', '".$category_id."')");
 		if($res)
 		{
-			$deletesubject = mysqli_fetch_object($res, "Subject", array($this->db));
-			if($deletesubject)
-			{
-				return $deletesubject;
-			}
+			return $res;
 
 		}
 		return null;
 	}
-
-
 
 
 
