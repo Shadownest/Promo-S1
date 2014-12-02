@@ -81,15 +81,15 @@ class FeedManager
 
 	public function createMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, '<a href="index.php?page=category&id='.$message->getSubject()->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject->getId().'">'.$this->shorten($message->getSubject->getTitle(), 32).'</a> > <b>+</b> <a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$message->getSubject()->getCategory()->getId().'">'.$this->shorten($message->getSubject()->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject()->getId().'">'.$this->shorten($message->getSubject()->getTitle(), 32).'</a> > <b>+</b> <a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>');
 	}
 	public function editMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, '<a href="index.php?page=category&id='.$message->getSubject()->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject->getId().'">'.$this->shorten($message->getSubject->getTitle(), 32).'</a> > <b>~</b> <a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$message->getSubject()->getCategory()->getId().'">'.$this->shorten($message->getSubject()->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject()->getId().'">'.$this->shorten($message->getSubject()->getTitle(), 32).'</a> > <b>~</b> <a href="index.php?page=message&id='.$message->getId().'">'.$this->shorten($message->getText(), 32).'</a>');
 	}
 	public function deleteMessage(User $author, Message $message)
 	{
-		$this->addToFeed($author, '<a href="index.php?page=category&id='.$message->getSubject()->getCategory()->getId().'">'.$this->shorten($subject->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject->getId().'">'.$this->shorten($message->getSubject->getTitle(), 32).'</a> > <b>-</b> '.$this->shorten($message->getText(), 32).'');
+		$this->addToFeed($author, '<a href="index.php?page=category&id='.$message->getSubject()->getCategory()->getId().'">'.$this->shorten($message->getSubject()->getCategory()->getTitle(), 32).'</a> > <a href="index.php?page=subject&id='.$message->getSubject()->getId().'">'.$this->shorten($message->getSubject()->getTitle(), 32).'</a> > <b>-</b> '.$this->shorten($message->getText(), 32).'');
 	}
 
 	/*
