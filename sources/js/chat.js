@@ -41,11 +41,6 @@ $('document').ready(function()
 
 				});
 			});
-
-	//suppresion de messages
-	$("#click_sup").click(function() {
-		$.get('index.php?page=tchat&ajax=true&delete=true', function(data) {
-			
 		});
 	},2000);
 
