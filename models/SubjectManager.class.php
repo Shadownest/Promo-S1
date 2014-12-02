@@ -59,7 +59,6 @@ class SubjectManager{
 		if($res)
 		{
 			return $res;
-
 		}
 		return null;
 	}
