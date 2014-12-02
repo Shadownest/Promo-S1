@@ -96,6 +96,28 @@ class UserManager{
 		}
 	}
 
+	public function getAvatar($id){
+
+		$request= "SELECT  `id`, `name`, `password`, `email`, `level`, `avatar`, `description`, `creation_date` FROM user  WHERE id='".$id."' ";
+		var_dump($request);
+
+		$res=mysqli_query($this->db, $request);
+
+		if($res)
+		{
+			$user=mysqli_fetch_object($res,"User");
+			if ($user)
+			{
+				$avatar=$user->avatar;
+
+				return $avatar;
+			}
+			
+		}
+				
+	}
+
+
 	public function modifyUser($id, $name, $email, $description)
 	{
 		$name= mysqli_real_escape_string($this->db, $name);

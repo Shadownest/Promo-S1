@@ -10,6 +10,10 @@ if(isset($_GET['id']) && $_GET['id']!=""){
 	while($i<count($homeMessage))
 	{
 		$Message=$homeMessage[$i];
+		$author_id=$Message->getAuthor_id();
+		$manager = new UserManager($db);
+		$user=$manager->getUser($author_id);
+		$avatar=$user->getAvatar($author_id);
 		require('views/message.phtml');
 		$i++;
 	}
