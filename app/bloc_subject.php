@@ -2,7 +2,7 @@
 // la liste des sujects de chaque categorie
 $manager = new SubjectManager($db);
 
-if($_GET['page']=="category"){
+if(isset($_GET['page']) && $_GET['page']=="category"){
 	$id=$titleCategory->getId();
 	$homeSubject = $manager-> displayListAllSubject($id);
 }
