@@ -57,6 +57,9 @@
 						<input type="text" name="searchName" id="searchName" class="form-control"/>
 						<button class="button_success" type="submit"><i class="fa fa-check"></i> Valider</button>
 						<hr>
+					<input type="radio" name="choiceLevel" id="choiceUser" <?= $checked; ?> /> <label for="choiceUser">Utilisateur</label>
+					<input type="radio" name="choiceLevel" id="choiceModerator" <?= $checked; ?> /> <label for="choiceModerator">Moderateur</label>
+					<input type="radio" name="choiceLevel" id="choiceAdmin" <?= $checked; ?> /> <label for="choiceAdmin">Admnistrateur</label>
 					</div>
 				</form>
 			</fieldset>

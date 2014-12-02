@@ -3,7 +3,10 @@ if(isset($_GET['id']) && $_GET['id']!=""){
 
 	$id=$_GET['id'];
 	$manager = new MessageManager($db);
-	$homeMessage = $manager-> getMessageBySubject($subject, 0);
+
+	$homeMessage = $manager-> getMessageBySubject($id,0);
+
+
 	$i=0;
 	while($i<count($homeMessage))
 	{
