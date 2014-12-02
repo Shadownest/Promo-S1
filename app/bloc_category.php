@@ -2,7 +2,7 @@
 /////////////////////////////////////////////////////////
 // la liste des categories 
 $manager = new CategoryManager($db);
-$homeCategory = $manager -> displayListCategory();
+$homeCategory = $manager -> getListCategory();
 
 $i=0;
 while($i<count($homeCategory))

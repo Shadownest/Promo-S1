@@ -9,7 +9,6 @@ if(isset($_GET['id']) && $_GET['id']){
 	require('views/subject.phtml');
 }
 
-
 //requete sql pour effacer la categorie sélectionnée 
 //redirection
 //exit

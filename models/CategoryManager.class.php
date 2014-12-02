@@ -14,16 +14,10 @@ class CategoryManager{
 
 
 
-	public function displayCategoriesList(){
-	//génération d'une liste des categories qui s'affiche dans le selecteur
-	$res=mysqli_query($this->db, "SELECT title from category");
-	if($res)
-		{
-	 	$list_category = mysqli_fetch_object($res, "Category");
-	 	return $list_category; 
-	 	}
-	}
+	
+
 	/*
+
 	public function deleteCategory(){
 
 	//tranférer sujets de la catégorie à supprimer :
@@ -47,7 +41,7 @@ class CategoryManager{
 
 	//homepage
 
-	public function displayListCategory()
+	public function getListCategory()
 
 	{	$requete = "SELECT `id`,`title` FROM `category` ORDER BY `position`";
 		
