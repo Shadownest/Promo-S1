@@ -1,12 +1,10 @@
 <div>
 	<div>
-		
 		<strong>Créé le : </strong><?=$Message->getCreation_date();?>
 		<strong>  par : </strong><?=$Message->getAuthor()->getName();?>	
 	</div>
-
+	<div class="thumbnail_avatar">
+		<img src="<?=$_SESSION['avatar']?>" alt="">
+	</div>
 	<p><?=$Message->getText();?></p>
-
-	
-
 </div>
