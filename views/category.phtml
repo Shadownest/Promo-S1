@@ -1,18 +1,30 @@
 <div class="row">
-	<h1>Vous êtes à la catégorie <?=$titleCategory->getTitle();?> <i class="fa fa-comment"></i></h1>
+	<h1>Vous êtes dans la catégorie <?=$titleCategory->getTitle();?> <i class="fa fa-comment"></i></h1>
 
 	<div class="col-md-12 category_title">
 		<a href="index.php?page=category&id=<?=$titleCategory->getId()?>"><i class="fa fa-comment-o"></i> <?=$titleCategory->getTitle();?></a>
 	</div>
-	<div><?php require('app/bloc_subject.php'); ?></div>
+	<div class="subject">
+		<?php require('app/bloc_subject.php'); ?>
+	</div>
 
-	<div>
-	<form action="" method="POST">
-	<label for="title">Title Subject : </label><input type="text" name="title" id="title">
+	<button class="show_create_subject">Créé un sujet</button>
 	
-	<button type="submit">Valider</button>
-	</form>
-</div>
+	<div class="col-md-12 create_subject">
+		<form action="" method="POST">
+			<div class="row">
+				<div class="form-group col-md-5">
+					<label for="title">Titre du sujet : </label>
+					<input type="text" name="title" id="title" class="form-control">
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-md-3">
+				<button type="submit">Valider</button>
+			</div>
+		</div>
+		</form>
+	</div>
 
-<h3><a href="index.php?page=home">Retour </a></h3>
+<h3><a href="index.php?page=home" class="return_home">◄ Retour </a></h3>
 </div>
