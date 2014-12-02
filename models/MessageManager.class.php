@@ -67,7 +67,7 @@ class MessageManager{
 		
 		if($res)
 		{
-			$message = mysqli_fetch_object($res, "Message");
+			$message = mysqli_fetch_object($res, "Message", array($this->db));
 			if($message)
 			
 				{
