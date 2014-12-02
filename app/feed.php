@@ -7,11 +7,13 @@ if (isset($_GET['ajax'], $_GET['last']))
 }
 else
 {
+	/*
 	$user = new UserManager($db);
 	$user = $user->getUser(16);
 	$subject = new SubjectManager($db);
 	$subject = $subject->getSubject(22);
-	//$feedManager->createSubject($user, $subject);
+	$feedManager->createSubject($user, $subject);
+	*/
 	$feedManager->displayLastFeed();
 }
 ?>
