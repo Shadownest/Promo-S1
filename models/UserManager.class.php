@@ -140,27 +140,28 @@ class UserManager{
 		}
 	}
 
-	// UPC Admin
+	// -------------------------- UPC Admin -----------------------------------------------
 
 
-	// affichage liste utilisateurs
-	public function displayUsers(){
+	// affichage de l'utilisateur suceptible à supprimer
+	public function displayUser(){
 
-	 $res=mysqli_query($this->db, "SELECT id, name, date_creation, level FROM user");
-	 if($res){
-	 	$user = mysqli_fetch_object($user, "User");
-	 	return $user; 
-	 	}
-		return null;
+	$res=mysqli_query($this->db, "SELECT id, name, date_creation, level FROM user WHERE name='".$name."'");
+	return $res;
 	}
 
 
 	//mise à jour du compte utilisateur : moderation ou non
 
 
-	
+	public function checkName($term){
 
-	
+	$res=mysqli_query($this->db, "SELECT name FROM user WHERE name LIKE %'".$term."'%");
+	return $res;
+
+	} 
+
+
 	//suprimer un compte utilisateur
 
 

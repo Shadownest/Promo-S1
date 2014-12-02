@@ -16,10 +16,11 @@ class MessageManager{
 	}
 
 
-	public function displayListMessage($id)
+	public function getListMessage($id)
 	{
 
-		$requete = "SELECT author_id, `message`.`id`, `message`.`text`, `user`.`name`, `message`.`creation_date`, `message`.`update_date`, `subject`.`title` FROM `message` LEFT JOIN user ON message.author_id=user.id LEFT JOIN subject ON message.subject_id=subject.id WHERE message.subject_id='".$id."'";
+		$id = intval($id);
+		$requete = "SELECT id, `text`, author_id, creation_date, update_date, subject_id FROM `message` WHERE subject_id='".$id."'";
 		
 		$res = mysqli_query($this->db, $requete);
 	
@@ -77,7 +78,17 @@ class MessageManager{
 	return null;
 	}	
 
-
+	public function addMessage($author_id, $subject_id, $text)
+	{
+		$res=mysqli_query($this->db, "INSERT INTO `forum`.`message` (`text`, `author_id`, `subject_id`) VALUES ('".$text."','".$author_id."','".$subject_id."')");
+		
+		if($res){
+			return $res;
+		}
+		else{
+			return null;
+		}
+	}
 
 }
 ?>

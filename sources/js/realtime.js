@@ -2,6 +2,7 @@ function startFeed()
 {
 	var container = $('.refresh_message');
 	//container.css('overflow', 'auto').css('height', '34px');
+	//container.animate({scrollTop:'200px'}, '500');
 	var id = 0;
 	setInterval(function()
 	{

@@ -1,3 +1,10 @@
 <h2>Bienvenue sur le Forum ! <i class="fa fa-group"></i></h2>
 <hr>
 <?php require("app/bloc_category.php"); ?>
+<hr>
+<?php 
+if(isset($_SESSION["id"]))
+{
+	require("app/tchat.php"); 
+}
+?>

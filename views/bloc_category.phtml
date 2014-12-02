@@ -1,9 +1,13 @@
-<div class="row category">
-	<div class="col-md-12 category_title">
-		<a href="index.php?page=category&id=<?=$titleCategory->getId()?>"><i class="fa fa-comment-o"></i> <?=$titleCategory->getTitle();?></a>
+<div class="category">
+	<div class="row">
+		<div class="col-md-12 category_title">
+			<a href="index.php?page=category&id=<?=$titleCategory->getId()?>"><i class="fa fa-comment-o"></i> <?=$titleCategory->getTitle();?></a>
+		</div>
 	</div>
-	<div class="subject">
+	<div class="row">
+		<div class="subject">
 
-		<?php require('app/bloc_subject.php'); ?>
+			<?php require('app/bloc_subject.php'); ?>
+		</div>
 	</div>
 </div>

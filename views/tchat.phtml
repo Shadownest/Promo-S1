@@ -1,0 +1,26 @@
+<div class="tchat">
+	<div class="row">
+		<div class="col-md-12 category_title">
+			<p><i class="fa fa-slideshare"></i> Chat</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 subject">
+			<div class="row">
+				<span class="alert-danger"><?=$error;?></span>
+				<div id="aff_chat">
+					<?php require("app/bloc_tchat.php"); ?>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="input-group input_chat">
+					<input type="text" class="form-control" id="chat" placeholder="Message" name="chat">
+					<span class="input-group-btn">
+				        <button class="btn btn-default" id="click_chat"><i class="fa fa-check"></i> Envoyer</button>
+				     </span>
+			   	</div>
+			</div>
+		</div>
+	</div>
+</div>
