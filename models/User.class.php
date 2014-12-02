@@ -36,7 +36,10 @@ class User{
 	}
 	public function setName($name){
 
-		$this->name = $name;
+		if (strlen($name) < 4)
+			return "trop court !";
+		else
+			$this->name = $name;
 	}
 
 	public function getPassword(){

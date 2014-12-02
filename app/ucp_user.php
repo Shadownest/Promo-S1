@@ -11,9 +11,12 @@ if(isset($_SESSION["name"]) && $_SESSION["name"]!="")
 
 	if(isset($_POST['avatar']) && $_POST['avatar']!="")
 	{
-		$user->setAvatar($_POST['avatar']);
-		$avatar_modif=$manager->saveUser($user);
-		$_SESSION['avatar']=$_POST['avatar'];
+		$avatar_modif = $user->setAvatar($_POST['avatar']);
+		if ($avatar_modif)
+		{
+			$newUser=$manager->saveUser($user);
+			$_SESSION['avatar']=$_POST['avatar'];
+		}
 	}
 
 	if(isset($_POST['name'], $_POST['email']))
@@ -21,7 +24,7 @@ if(isset($_SESSION["name"]) && $_SESSION["name"]!="")
 		$user->setName($_POST['name']);
 		$user->setEmail($_POST['email']);
 		$user->setDescription($_POST['description']);
-		$modification=$manager->saveUser($user);
+		$user=$manager->saveUser($user);
 		$_SESSION['name']=$_POST['name'];
 	}
 
