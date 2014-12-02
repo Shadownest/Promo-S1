@@ -5,6 +5,8 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
 	// ------------------------ gestion des categories ---------------------------------------------------------------
 
+	// récupération de la liste des categories, en vue de la suppression eventuelle de l'une d'entre elles -> cf. admin_categorylist.php
+
 	
 
 	//suppresssion d'une categorie (transfert parallèle des sujets de la categorie dans la categorie "Archives")
