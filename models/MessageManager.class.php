@@ -67,7 +67,7 @@ class MessageManager{
 		
 		if($res)
 		{
-			$message = mysqli_fetch_object($res, "Message");
+			$message = mysqli_fetch_object($res, "Message", array($this->db));
 			if($message)
 			
 				{
@@ -86,7 +86,7 @@ class MessageManager{
 			$feed = new FeedManager($this->db);
 			$user = new UserManager($this->db);
 			$user = $user->getUser($author_id);
-			$messsage = $this->getMessage(mysqli_insert_id($this->db));
+			$message = $this->getMessage(mysqli_insert_id($this->db));
 			$feed->createMessage($user, $message);
 			return "Le message à été ajouté";
 		}
