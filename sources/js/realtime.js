@@ -1,12 +1,12 @@
 function startFeed()
 {
 	var container = $('.refresh_message');
-	//container.css('overflow', 'auto').css('height', '34px');
+	container.css('overflow', 'auto').css('height', '34px');
 	//container.animate({scrollTop:'200px'}, '500');
 	var id = 0;
 	setInterval(function()
 	{
-		id = container.find('.feed').last().data('id');
+		id = container.find('.feed').first().data('id');
 		$.get("index.php?page=feed&ajax&last="+id, function(data)
 		{
 			try
@@ -20,7 +20,7 @@ function startFeed()
 			var i = 0;
 			while (data[i] != undefined)
 			{
-				$(container).append(data[i]['html']);
+				$(container).prepend(data[i]['html']);
 				id = data[i]['id'];
 				i++;
 			}
