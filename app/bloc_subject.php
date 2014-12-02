@@ -7,8 +7,7 @@ if(isset($_GET['page']) && $_GET['page']=="category"){
 	$homeSubject = $manager-> displayListAllSubject($id);
 }
 else{
-	$id=$homeCategory[$i]->getId();
-	$homeSubject = $manager-> displayListSubject($id);
+	$homeSubject = $manager->getSubjectByCategory($homeCategory[$i], 5);
 }
 
 $j=0;
@@ -22,7 +21,7 @@ while($j<count($homeSubject))
 	$Subject=$homeSubject[$j];
 
 	$manager = new MessageManager($db);
-	$homeMessage = $manager->displayLastMessageOfSubject($Subject->GetId());
+	$homeMessage = $manager->getLastMessageOfSubject($Subject);
 
 	$Message= new Message($db);
 	$lastAuthor="Aucun message pour ce sujet";
