@@ -12,7 +12,7 @@ if(isset($_SESSION["name"]) && $_SESSION["name"]!="")
 	if(isset($_POST['avatar']) && $_POST['avatar']!="")
 	{
 		$avatar_modif = $user->setAvatar($_POST['avatar']);
-		if ($avatar_modif)
+		if (!$avatar_modif)
 		{
 			$newUser=$manager->saveUser($user);
 			$_SESSION['avatar']=$_POST['avatar'];
