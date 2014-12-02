@@ -2,25 +2,39 @@
 
 if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 
-
+	$title="";
+	$position="";
+	$id="";
+	$modif_category="";
+	$manager = new CategoryManager($db);
 	// ------------------------ gestion des categories ---------------------------------------------------------------
 
 	// récupération de la liste des categories, en vue de la suppression eventuelle de l'une d'entre elles -> cf. admin_categorylist.php
 
-	
 
-	//suppresssion d'une categorie (transfert parallèle des sujets de la categorie dans la categorie "Archives")
-	/*if(isset($_POST['delete_category'])){
+	//suppresssion d'une categorie (transfert parallèle des sujets de la categorie selectionnee dans la categorie "Archives")
+	if(isset($_POST['category'])){
 
-		$manager = new CategoryManager($db);
-
-		$category = $manager->deleteCategory($_POST['delete_category']);
-
-		header("Location: index.php?page=ucp_admin");
-		exit();
+		$category = $manager->deleteCategory($_POST['category']);
 
 	}
-	
+
+	//sélection de la categorie à modifier
+	if(isset($_POST['modif_category'])){
+
+		$select_category = $manager->getCategory($_POST['modif_category']);
+
+		$title=$select_category->getTitle();
+		$position=$select_category->getPosition();
+		$id=$select_category->getId();
+	}
+
+	//modification d'une categorie
+	if(isset($_POST['name_category'], $_POST['pos_category'])){
+		$modif_category = $manager->modifyCategory($_POST['id'], $_POST['name_category'], $_POST['pos_category']);
+	}
+
+	/*
 	//creation d'une nouvelle categorie
 	if(isset($_POST['title']), $_POST['position']){
 
@@ -31,18 +45,6 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == TRUE){
 		header("Location: index.php?page=ucp_admin");
 		exit();
 
-
-	}
-
-	//modification d'une nouvelle categorie
-	if(isset($_POST['modify_category'])){
-
-		$manager = new CategoryManager($db);
-
-		$category = $manager->modifyCategory($_POST['modify_category']);
-
-		header("Location: index.php?page=ucp_admin");
-		exit();
 
 	}
 

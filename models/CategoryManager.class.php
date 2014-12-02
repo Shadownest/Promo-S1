@@ -14,23 +14,43 @@ class CategoryManager{
 
 
 
-	
 
-	/*
 
-	public function deleteCategory(){
+	public function deleteCategory($id){
 
 	//tranférer sujets de la catégorie à supprimer :
 	
-	mysql_query($this->db, "UPDATE `forum`.`subjects` SET `category`.`id`='3' WHERE `category`.`id`=''");
+	$maj=mysqli_query($this->db, "UPDATE `forum`.`subject` SET `category_id`='3' WHERE `category_id`='".$id."'");
+
+		if($maj){
+				return "Sujets déplacés à la catégorie Archives";
+		}
+		else{
+				return "Erreur lors du transfert. Veuillez réessayer ultérieurement.";
+		}
 
 	//suppression de la categorie selectionnee :
 
-	mysqli_query($this->db, "DELETE FROM category WHERE id='' ");
-		
+	$del=mysqli_query($this->db, "DELETE FROM category WHERE id='".$id."' ");
+	if($del){
+			return "Categorie supprimée";
+		}
+		else{
+			return "Erreur lors de la suppression. Veuillez réessayer ultérieurement.";
+		}
+	}
+	
+	public function modifyCategory($id, $title, $position){
+		$res=mysqli_query($this->db, "UPDATE  `forum`.`category` SET  `title` ='".$title."', position='".$position."' WHERE  `category`.`id` ='".$id."'");
+		if($res){
+			return "Categorie modifiée";
+		}
+		else{
+			return "Erreur lors de la modification. Veuillez réessayer ultérieurement.";
+		}
 	}
 
-
+	/*
 	public function createCategory($title, $position){
 
 	//creation  d'une nouvelle categorie
@@ -47,7 +67,7 @@ class CategoryManager{
 		
 		$res = mysqli_query($this->db, $requete);
 		
-		if ($res)
+		if($res)
 
 		{		$list = array();	
 				while ($category = mysqli_fetch_object($res, "Category"))

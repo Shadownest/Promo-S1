@@ -6,10 +6,10 @@
 				<span class="alert-danger"><!-- ----------------------------- INSERER VARIABLE ERREUR --></span>
 				<form action="index.php?page=ucp_admin" method="post">
 					<label for="category">Catégories</label>
-					<select class="form-control" name="category[]" id="category" multiple>
+					<select class="form-control" name="category" id="category" multiple>
 						<?php require("app/admin_categorylist.php");?>
 					</select>
-					<button class="button_alert" type="submit"><i class="fa fa-remove"></i>  Supprimer</button>
+					<button class="button_alert" type="submit" data-id="<?= $category->getId(); ?>"><i class="fa fa-remove"></i>  Supprimer</button>
 				</form>
 				<div class="alert alert-danger">
 					<i class="fa fa-warning"></i> Avertissement ! Si une catégorie est supprimée, ses sujets seront transférés dans la catégorie "Archives". <br />(!) Bloquer avec Bootstrap la categorie "Archives".
@@ -19,23 +19,26 @@
 
 		<div class="col-md-offset-2 col-md-5 block">
 			<fieldset>
-				<legend>Modification catégorie</legend>
-					<span class="alert-danger"><!-- ----------------------------- INSERER VARIABLE ERREUR --></span>
+				<legend>Sélectionner la catégorie à modifier</legend>
+					<span class="alert-warning"><?=$modif_category;?></span>
 				<form action="index.php?page=ucp_admin" method="post">
 					<div class="form-group">
-						<label for="category">Catégories</label>
-						<select class="form-control" name="category[]" id="category" multiple>
-							<option value="exemple">exemple</option>
-							<option value="exemple2">exemple2</option>
-						</select>
+						<label for="modif_category">Catégories</label>
+						<select class="form-control" name="modif_category" id="modif_category" multiple>
+							<?php require("app/admin_categorylist.php");?>
+					</select>
 					</div>
+					<button class="button_success" type="submit"><i class="fa fa-check"></i>  Modifier</button>
+				</form>
+				<form action="index.php?page=ucp_admin" method="post">
 					<div class="form-group">
 						<label for="name">Nom</label>
-						<input type="text" class="form-control" name="name_category" id="name" value="">
+						<input type="text" class="form-control" name="name_category" id="name" value="<?=$title;?>">
+						<input name="id" type="hidden" value="<?=$id;?>">
 					</div>
 					<div class="form-group">
 						<label for="pos">Position</label>
-						<input type="number" class="form-control" name="pos_category" id="pos" value="">
+						<input type="number" class="form-control" name="pos_category" id="pos" value="<?=$position;?>">
 					</div>
 					<button class="button_success" type="submit"><i class="fa fa-check"></i>  Valider</button>
 				</form>
