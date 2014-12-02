@@ -9,7 +9,7 @@ if(isset($_GET['id']) && $_GET['id']){
 		$manager=new MessageManager($db);
 		$id=$_GET['id'];
 		
-		$message=$manager->addMessage($_SESSION['id'], $id, $_POST['message']);
+		$message=$manager->addMessage($_SESSION['id'], $id, nl2br($_POST['message']));
 	}
 
 	require('views/subject.phtml');
