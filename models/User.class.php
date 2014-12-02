@@ -12,11 +12,12 @@ class User{
 	private $admin;
 	private $moderator;
 	private $creation_date;
+	private $db;
 	
 
 
-	public function __construct(){
-
+	public function __construct($db){
+		$this->db = $db;
 	}
 
 	public function getId(){
@@ -42,9 +43,37 @@ class User{
 
 		return $this->password;
 	}
-	public function setPassword($password){
 
-		$this->password = $password;
+	public function editPassword($oldPassword, $newPassword, $newPassword2)
+	{
+
+		$password=mysqli_query($this->db, "SELECT password FROM user WHERE id='".$this->getId()."'");
+		if($password)
+		{
+			$password=mysqli_fetch_assoc($password);
+			if($user->verifPassword($password))
+			{
+				if($newPassword==$newPassword2)
+				{
+					if (strlen($newPassword) < 4)
+					{
+						return 'Mot de passe trop court';
+					}
+					else
+					{
+						$newPassword = password_hash($newPassword, PASSWORD_BCRYPT, ['cost'=>14]);
+						$res = mysqli_query($this->db, "UPDATE `forum`.`user` SET password='".$newPassword."' WHERE id='".$this->getId()."'");
+						return 'Mot de passe modifié avec succès';
+					}
+				}
+				else{
+					return "Les nouveaux mots de passe saisies ne corrrespondent pas";
+				}
+			}
+			else{
+				return "Vous vous êtes trompé dans la saisie de votre mot de passe";
+			}
+		}
 	}
 
 	public function getEmail(){
