@@ -1,16 +1,15 @@
 <?php 
 // la liste des sujects de chaque categorie
+$manager = new SubjectManager($db);
 
 if($_GET['page']=="category"){
 	$id=$titleCategory->getId();
+	$homeSubject = $manager-> displayListAllSubject($id);
 }
 else{
 	$id=$homeCategory[$i]->getId();
+	$homeSubject = $manager-> displayListSubject($id);
 }
-
-$manager = new SubjectManager($db);
-$homeSubject = $manager-> displayListSubject($id);
-
 
 $j=0;
 while($j<count($homeSubject))
