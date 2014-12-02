@@ -46,6 +46,7 @@ class CategoryManager{
 		$res = mysqli_query($this->db, "UPDATE  `forum`.`category` SET  `title`='".$category->getTitle()."', position='".$category->getPosition()."' WHERE  `category`.`id` ='".$category->getId()."'");
 		if($res)
 		{
+			(new FeedManager($this->db))->editCategory((new UserManager($this->db))->getUser(16), $category);
 			return $this->getCategory($category->getId());
 		}
 		else{
