@@ -3,8 +3,7 @@ if(isset($_GET['id']) && $_GET['id']!=""){
 
 	$id=$_GET['id'];
 	$manager = new MessageManager($db);
-	$homeMessage = $manager-> getListMessage($id);
-
+	$homeMessage = $manager-> getMessageBySubject($subject, 0);
 	$i=0;
 	while($i<count($homeMessage))
 	{
@@ -19,7 +18,7 @@ if(isset($_GET['id']) && $_GET['id']!=""){
 			$addSupButton = "";
 			$addEditButton = "";
 		}
-		
+
 
 		$Message=$homeMessage[$i];
 		$author_id=$Message->getAuthor_id();
